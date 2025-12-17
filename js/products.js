@@ -469,7 +469,12 @@ function filterProducts(category) {
     renderProductGrid(category);
 }
 
+// Expose functions globally for page loader
+window.renderProductGrid = renderProductGrid;
+window.openProductDetail = openProductDetail;
+window.filterProducts = filterProducts;
+
 // Initialize on DOM Load
-document.addEventListener('DOMContentLoaded', () => {
-    renderProductGrid();
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(renderProductGrid, 50);
 });

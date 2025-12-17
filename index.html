@@ -31,43 +31,107 @@
 <body class="font-sans bg-light text-dark">
 
     <!-- Navigation Bar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-slate-900 z-50 shadow-lg">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="flex justify-between items-center h-16">
+    <nav id="navbar" style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; padding: 12px 16px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: flex; align-items: center; justify-content: space-between; height: 56px; background: #0f172a; border-radius: 9999px; padding: 0 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
+                
                 <!-- Logo -->
-                <a href="#" onclick="navigateTo('home-view'); return false;" class="flex items-center gap-2">
-                    <i class="ph-fill ph-sun-horizon text-3xl text-secondary"></i>
-                    <span class="text-xl font-bold text-white">JSUN</span>
+                <a href="#" onclick="navigateTo('home-view'); return false;" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                    <i class="ph-fill ph-sun-horizon" style="font-size: 28px; color: #ea580c;"></i>
+                    <span style="font-size: 20px; font-weight: 700; color: #ffffff;">JSUN</span>
                 </a>
 
-                <!-- Desktop Menu -->
-                <div class="flex items-center gap-8">
-                    <a href="#" onclick="navigateTo('home-view'); return false;" class="text-gray-300 hover:text-white font-medium transition">Accueil</a>
-                    <a href="#" onclick="navigateTo('services-view'); return false;" class="text-gray-300 hover:text-white font-medium transition">Services</a>
-                    <a href="#" onclick="navigateTo('about-view'); return false;" class="text-gray-300 hover:text-white font-medium transition">À Propos</a>
-                    <a href="#" onclick="navigateTo('contact-view'); return false;" class="text-gray-300 hover:text-white font-medium transition">Contact</a>
-                    <button onclick="openConsultationModal()" class="bg-secondary hover:bg-orange-600 text-white px-6 py-2.5 rounded-lg font-semibold transition">
-                        Consultation
+                <!-- Desktop Navigation Links -->
+                <div id="desktop-nav" style="display: none; align-items: center; gap: 32px;">
+                    <a href="#" onclick="navigateTo('home-view'); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9;">Accueil</a>
+                    <a href="#" onclick="navigateTo('services-view'); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9;">Services</a>
+                    <a href="#" onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'}); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9;">Process</a>
+                    <a href="#" onclick="document.getElementById('marketplace').scrollIntoView({behavior: 'smooth'}); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9;">Marketplace</a>
+                    <a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9;">Contact</a>
+                </div>
+
+                <!-- Right Side: CTA + Mobile Toggle -->
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <!-- CTA Button -->
+                    <button onclick="openConsultationModal()" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(to right, #ea580c, #f97316); color: #ffffff; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(234,88,12,0.4);">
+                        <span id="cta-text-full" style="display: none;">Appel Gratuit</span>
+                        <span id="cta-text-short">Appel</span>
+                        <i class="ph ph-arrow-right"></i>
                     </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" style="display: flex; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 9999px; align-items: center; justify-content: center; border: none; cursor: pointer;">
+                        <i class="ph ph-list" id="menu-icon" style="font-size: 22px; color: #ffffff;"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" style="display: none; margin-top: 8px; background: #0f172a; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); overflow: hidden;">
+                <div style="padding: 16px;">
+                    <a href="#" onclick="navigateTo('home-view'); toggleMobileMenu(); return false;" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                        <i class="ph ph-house" style="font-size: 18px;"></i>Accueil
+                    </a>
+                    <a href="#" onclick="navigateTo('services-view'); toggleMobileMenu(); return false;" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                        <i class="ph ph-briefcase" style="font-size: 18px;"></i>Services
+                    </a>
+                    <a href="#" onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu(); return false;" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                        <i class="ph ph-steps" style="font-size: 18px;"></i>Process
+                    </a>
+                    <a href="#" onclick="document.getElementById('marketplace').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu(); return false;" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                        <i class="ph ph-storefront" style="font-size: 18px;"></i>Marketplace
+                    </a>
+                    <a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu(); return false;" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                        <i class="ph ph-envelope" style="font-size: 18px;"></i>Contact
+                    </a>
+                    <div style="padding-top: 12px; margin-top: 12px; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <button onclick="openConsultationModal(); toggleMobileMenu();" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(to right, #ea580c, #f97316); color: #ffffff; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 600; border: none; cursor: pointer;">
+                            <i class="ph ph-phone-call" style="font-size: 18px;"></i>
+                            Appel Gratuit
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
+    <!-- Navbar Responsive Script -->
+    <script>
+        function updateNavbar() {
+            var desktopNav = document.getElementById('desktop-nav');
+            var mobileBtn = document.getElementById('mobile-menu-btn');
+            var ctaFull = document.getElementById('cta-text-full');
+            var ctaShort = document.getElementById('cta-text-short');
+            if (window.innerWidth >= 768) {
+                desktopNav.style.display = 'flex';
+                mobileBtn.style.display = 'none';
+                ctaFull.style.display = 'inline';
+                ctaShort.style.display = 'none';
+            } else {
+                desktopNav.style.display = 'none';
+                mobileBtn.style.display = 'flex';
+                ctaFull.style.display = 'none';
+                ctaShort.style.display = 'inline';
+            }
+        }
+        updateNavbar();
+        window.addEventListener('resize', updateNavbar);
+    </script>
+
     <!-- Main Content -->
-    <main id="app-container" class="pt-16">
+    <main id="app-container" class="pt-0">
 
         <!-- HOME VIEW -->
         <section id="home-view" class="view-section">
             <!-- Hero + VSL Section -->
-            <section class="bg-slate-900 py-16 lg:py-20">
+            <section class="bg-slate-900 pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20">
                 <div class="max-w-4xl mx-auto px-4 sm:px-6">
                     <!-- Headline -->
-                    <div class="text-center mb-8">
-                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-3">
+                    <div class="text-center mb-6 sm:mb-8">
+                        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-2 sm:mb-3">
                             Importez de Chine, <span class="text-secondary">Sans Risques.</span>
                         </h1>
-                        <p class="text-gray-400 max-w-lg mx-auto">
+                        <p class="text-gray-400 text-sm sm:text-base max-w-lg mx-auto px-2">
                             Sourcing, transit et dédouanement. On gère tout.
                         </p>
                     </div>
@@ -88,299 +152,953 @@
                     </div>
 
                     <!-- CTA -->
-                    <div class="text-center mt-8">
-                        <button onclick="openConsultationModal()" class="bg-secondary hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition hover:scale-105">
+                    <div class="text-center mt-6 sm:mt-8">
+                        <button onclick="openConsultationModal()" class="bg-secondary hover:bg-orange-600 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold text-sm sm:text-base transition hover:scale-105 w-full sm:w-auto">
                             Réserver un Appel Gratuit
                         </button>
                     </div>
                 </div>
             </section>
 
-            <!-- Stats -->
-            <section class="bg-white py-8">
-                <div class="max-w-3xl mx-auto px-4 grid grid-cols-4 gap-4 text-center">
-                    <div>
-                        <p class="text-2xl font-bold text-primary">500+</p>
-                        <p class="text-xs text-gray-500">Imports</p>
-                    </div>
-                    <div>
-                        <p class="text-2xl font-bold text-primary">10K+</p>
-                        <p class="text-xs text-gray-500">Conteneurs</p>
-                    </div>
-                    <div>
-                        <p class="text-2xl font-bold text-primary">200+</p>
-                        <p class="text-xs text-gray-500">Clients</p>
-                    </div>
-                    <div>
-                        <p class="text-2xl font-bold text-secondary">98%</p>
-                        <p class="text-xs text-gray-500">Satisfaction</p>
-                    </div>
+            <!-- How It Works + Stats Section -->
+            <section id="how-it-works" class="py-20 lg:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-primary/60 relative overflow-hidden">
+                <!-- Background Elements -->
+                <div class="absolute inset-0 opacity-20">
+                    <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
                 </div>
-            </section>
 
-            <!-- How It Works Section -->
-            <section id="how-it-works" class="py-12 bg-gray-50">
-                <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                    <h2 class="text-2xl font-bold text-center text-dark mb-8">
-                        Comment Ça <span class="text-secondary">Marche?</span>
-                    </h2>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                    <!-- Header + Stats Row -->
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-14">
+                        <!-- Title -->
+                        <div class="lg:max-w-lg">
+                            <span class="inline-block bg-white/10 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
+                                Notre Méthode
+                            </span>
+                            <h2 class="text-3xl lg:text-4xl font-bold text-white leading-tight">
+                                Comment Ça <span class="text-secondary">Marche</span>
+                            </h2>
+                        </div>
 
-                    <!-- Steps Grid -->
-                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Stats -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 lg:gap-8">
+                            <div class="text-center bg-white/5 rounded-xl p-3 sm:p-0 sm:bg-transparent">
+                                <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">500+</p>
+                                <p class="text-xs lg:text-sm text-slate-300">Imports</p>
+                            </div>
+                            <div class="text-center bg-white/5 rounded-xl p-3 sm:p-0 sm:bg-transparent">
+                                <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">10K+</p>
+                                <p class="text-xs lg:text-sm text-slate-300">Conteneurs</p>
+                            </div>
+                            <div class="text-center bg-white/5 rounded-xl p-3 sm:p-0 sm:bg-transparent">
+                                <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">200+</p>
+                                <p class="text-xs lg:text-sm text-slate-300">Clients</p>
+                            </div>
+                            <div class="text-center bg-white/5 rounded-xl p-3 sm:p-0 sm:bg-transparent">
+                                <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary">98%</p>
+                                <p class="text-xs lg:text-sm text-slate-300">Satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Process Steps -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        
                         <!-- Step 1 -->
-                        <div class="bg-white rounded-lg p-5 shadow-sm text-center">
-                            <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-3">1</div>
-                            <i class="ph-fill ph-chats text-2xl text-primary mb-2"></i>
-                            <h3 class="font-semibold text-sm mb-1">Consultation</h3>
-                            <p class="text-xs text-gray-500">Appel gratuit</p>
+                        <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-all duration-300">
+                            <div class="relative mb-4 overflow-hidden rounded-xl">
+                                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=240&fit=crop" 
+                                     alt="Consultation" 
+                                     class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                <div class="absolute top-3 right-3 w-10 h-10 bg-secondary rounded-full flex items-center justify-center shadow-lg">
+                                    <i class="ph-fill ph-chats text-white text-lg"></i>
+                                </div>
+                                <div class="absolute bottom-3 left-3 w-7 h-7 bg-white rounded-full flex items-center justify-center">
+                                    <span class="text-xs font-bold text-primary">01</span>
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-1">Consultation</h3>
+                            <p class="text-slate-300 text-sm">On analyse vos besoins et on définit la meilleure stratégie.</p>
                         </div>
 
                         <!-- Step 2 -->
-                        <div class="bg-white rounded-lg p-5 shadow-sm text-center">
-                            <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-3">2</div>
-                            <i class="ph-fill ph-binoculars text-2xl text-secondary mb-2"></i>
-                            <h3 class="font-semibold text-sm mb-1">Sourcing</h3>
-                            <p class="text-xs text-gray-500">Fournisseurs vérifiés</p>
+                        <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-all duration-300">
+                            <div class="relative mb-4 overflow-hidden rounded-xl">
+                                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=240&fit=crop" 
+                                     alt="Sourcing" 
+                                     class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                <div class="absolute top-3 right-3 w-10 h-10 bg-secondary rounded-full flex items-center justify-center shadow-lg">
+                                    <i class="ph-fill ph-binoculars text-white text-lg"></i>
+                                </div>
+                                <div class="absolute bottom-3 left-3 w-7 h-7 bg-white rounded-full flex items-center justify-center">
+                                    <span class="text-xs font-bold text-primary">02</span>
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-1">Sourcing</h3>
+                            <p class="text-slate-300 text-sm">On trouve les meilleurs fournisseurs aux meilleurs prix.</p>
                         </div>
 
                         <!-- Step 3 -->
-                        <div class="bg-white rounded-lg p-5 shadow-sm text-center">
-                            <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-3">3</div>
-                            <i class="ph-fill ph-seal-check text-2xl text-green-600 mb-2"></i>
-                            <h3 class="font-semibold text-sm mb-1">Qualité</h3>
-                            <p class="text-xs text-gray-500">Inspection sur site</p>
+                        <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-all duration-300">
+                            <div class="relative mb-4 overflow-hidden rounded-xl">
+                                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=400&h=240&fit=crop" 
+                                     alt="Transport" 
+                                     class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                <div class="absolute top-3 right-3 w-10 h-10 bg-secondary rounded-full flex items-center justify-center shadow-lg">
+                                    <i class="ph-fill ph-airplane-tilt text-white text-lg"></i>
+                                </div>
+                                <div class="absolute bottom-3 left-3 w-7 h-7 bg-white rounded-full flex items-center justify-center">
+                                    <span class="text-xs font-bold text-primary">03</span>
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-1">Transport</h3>
+                            <p class="text-slate-300 text-sm">Expédition maritime ou aérienne avec suivi en temps réel.</p>
                         </div>
 
                         <!-- Step 4 -->
-                        <div class="bg-white rounded-lg p-5 shadow-sm text-center">
-                            <div class="w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-3">4</div>
-                            <i class="ph-fill ph-package text-2xl text-purple-600 mb-2"></i>
-                            <h3 class="font-semibold text-sm mb-1">Livraison</h3>
-                            <p class="text-xs text-gray-500">Porte-à-porte</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Services Section -->
-            <section class="py-16 bg-white">
-                <div class="max-w-6xl mx-auto px-4 sm:px-6">
-                    <h2 class="text-2xl font-bold text-center text-dark mb-10">
-                        Nos <span class="text-secondary">Services</span>
-                    </h2>
-
-                    <!-- Services Grid -->
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Sourcing -->
-                        <div class="bg-gradient-to-br from-primary to-slate-800 rounded-2xl p-6 text-white">
-                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-4">
-                                <i class="ph-fill ph-globe-hemisphere-east text-2xl"></i>
+                        <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-all duration-300">
+                            <div class="relative mb-4 overflow-hidden rounded-xl">
+                                <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=400&h=240&fit=crop" 
+                                     alt="Livraison" 
+                                     class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                <div class="absolute top-3 right-3 w-10 h-10 bg-secondary rounded-full flex items-center justify-center shadow-lg">
+                                    <i class="ph-fill ph-package text-white text-lg"></i>
+                                </div>
+                                <div class="absolute bottom-3 left-3 w-7 h-7 bg-white rounded-full flex items-center justify-center">
+                                    <span class="text-xs font-bold text-primary">04</span>
+                                </div>
                             </div>
-                            <h3 class="text-lg font-bold mb-2">Sourcing International</h3>
-                            <p class="text-blue-100 text-sm mb-4">+500 usines vérifiées en Chine avec audit complet.</p>
-                            <ul class="space-y-2 text-sm">
-                                <li class="flex items-center"><i class="ph-fill ph-check-circle text-green-400 mr-2"></i>Audit usine</li>
-                                <li class="flex items-center"><i class="ph-fill ph-check-circle text-green-400 mr-2"></i>Échantillonnage</li>
-                                <li class="flex items-center"><i class="ph-fill ph-check-circle text-green-400 mr-2"></i>Négociation prix</li>
-                            </ul>
+                            <h3 class="text-lg font-bold text-white mb-1">Livraison</h3>
+                            <p class="text-slate-300 text-sm">Dédouanement et livraison porte-à-porte en Tunisie.</p>
                         </div>
 
-                        <!-- Fret -->
-                        <div class="bg-light rounded-2xl p-6 hover:shadow-lg transition-all">
-                            <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-4">
-                                <i class="ph-fill ph-truck text-2xl text-secondary"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-2">Fret & Transit</h3>
-                            <p class="text-medium text-sm">Maritime FCL/LCL et aérien express avec suivi temps réel.</p>
-                        </div>
-
-                        <!-- Dédouanement -->
-                        <div class="bg-light rounded-2xl p-6 hover:shadow-lg transition-all">
-                            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
-                                <i class="ph-fill ph-stamp text-2xl text-green-600"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-2">Dédouanement</h3>
-                            <p class="text-medium text-sm">Gestion complète des formalités douanières tunisiennes.</p>
-                        </div>
-
-                        <!-- Qualité -->
-                        <div class="bg-light rounded-2xl p-6 hover:shadow-lg transition-all">
-                            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                                <i class="ph-fill ph-seal-check text-2xl text-purple-600"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-2">Contrôle Qualité</h3>
-                            <p class="text-medium text-sm">Inspection pré-expédition avec rapport photos/vidéos.</p>
-                        </div>
-
-                        <!-- Conseil -->
-                        <div class="bg-light rounded-2xl p-6 hover:shadow-lg transition-all">
-                            <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
-                                <i class="ph-fill ph-calculator text-2xl text-yellow-600"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-2">Conseil & Stratégie</h3>
-                            <p class="text-medium text-sm">Accompagnement personnalisé pour optimiser vos marges.</p>
-                        </div>
-
-                        <!-- Stockage -->
-                        <div class="bg-light rounded-2xl p-6 hover:shadow-lg transition-all">
-                            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                                <i class="ph-fill ph-warehouse text-2xl text-red-600"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-2">Stockage</h3>
-                            <p class="text-medium text-sm">Entrepôts en Chine et Tunisie pour consolidation.</p>
-                        </div>
                     </div>
 
-                    <!-- CTA -->
+                    <!-- CTA Button -->
                     <div class="text-center mt-10">
-                        <button onclick="openConsultationModal()" class="bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg shadow-secondary/30">
-                            <i class="ph ph-rocket-launch mr-2"></i>Démarrer Mon Projet
+                        <button onclick="openConsultationModal()" class="inline-flex items-center gap-2 bg-white text-slate-900 hover:bg-slate-100 px-7 py-3.5 rounded-full font-semibold transition-all shadow-lg shadow-black/20 hover:shadow-xl">
+                            <span>Démarrer Votre Projet</span>
+                            <i class="ph ph-arrow-right text-lg"></i>
                         </button>
                     </div>
                 </div>
             </section>
 
-            <!-- Problem/Solution Section -->
-            <section class="py-16 bg-slate-900 text-white">
-                <div class="max-w-5xl mx-auto px-4 sm:px-6">
-                    <div class="grid md:grid-cols-2 gap-10">
-                        <!-- Problem -->
-                        <div>
-                            <span class="inline-block bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs font-semibold mb-4">
-                                <i class="ph ph-warning mr-1"></i>LE PROBLÈME
-                            </span>
-                            <h2 class="text-xl font-bold mb-4">Importer Seul = <span class="text-red-400">Risqué</span></h2>
-                            <ul class="space-y-3 text-sm">
-                                <li class="flex items-center space-x-3">
-                                    <i class="ph ph-x text-red-400"></i>
-                                    <span>30% des usines Alibaba non fiables</span>
+            <!-- Services Section -->
+            <section class="py-12 sm:py-16 lg:py-20 bg-white overflow-hidden">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                    <!-- Header -->
+                    <div class="text-center mb-10 sm:mb-16">
+                        <span class="inline-block border-2 border-secondary text-secondary px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide mb-4">
+                            TRANSPORT & LOGISTIQUE
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark mb-3 sm:mb-4">
+                            Nos Services Logistiques
+                        </h2>
+                        <p class="text-medium text-sm sm:text-base max-w-2xl mx-auto px-2">
+                            Du sourcing à la livraison finale, nous garantissons votre succès.
+                        </p>
+                    </div>
+
+                    <!-- Carousel Container -->
+                    <div class="relative">
+                        <!-- Navigation Arrows - Using direct onclick for maximum reliability -->
+                        <button type="button" id="carousel-prev" 
+                            onclick="event.preventDefault(); console.log('PREV arrow clicked'); window.slideServices && window.slideServices('prev');"
+                            class="carousel-btn absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 z-30 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-secondary hover:text-white active:scale-95 transition-all duration-200 border-2 border-gray-100 cursor-pointer select-none"
+                            style="touch-action: manipulation;">
+                            <i class="ph ph-arrow-left text-lg sm:text-xl pointer-events-none"></i>
+                        </button>
+                        <button type="button" id="carousel-next" 
+                            onclick="event.preventDefault(); console.log('NEXT arrow clicked'); window.slideServices && window.slideServices('next');"
+                            class="carousel-btn absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 z-30 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-secondary hover:text-white active:scale-95 transition-all duration-200 border-2 border-gray-100 cursor-pointer select-none"
+                            style="touch-action: manipulation;">
+                            <i class="ph ph-arrow-right text-lg sm:text-xl pointer-events-none"></i>
+                        </button>
+
+                        <!-- Carousel Track -->
+                        <div class="overflow-hidden mx-6 sm:mx-8" id="carousel-wrapper">
+                            <div id="services-carousel" class="flex transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+                                <!-- Maritime Transportation -->
+                                <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+                                    <div class="group">
+                                        <div class="relative mb-8">
+                                            <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=400&h=280&fit=crop" alt="Maritime Transportation" class="w-full h-56 object-cover rounded-xl">
+                                            <div class="absolute -bottom-6 left-6">
+                                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-dashed border-secondary">
+                                                    <i class="ph-fill ph-anchor text-2xl text-secondary"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-dark mb-3">Transport Maritime</h3>
+                                        <p class="text-medium mb-4">Solutions FCL et LCL adaptées à vos besoins avec suivi en temps réel.</p>
+                                        <a href="#" onclick="navigateTo('services-view'); return false;" class="inline-flex items-center text-secondary font-semibold gap-2 hover:gap-3 transition-all">
+                                            En Savoir Plus
+                                            <span class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all">
+                                                <i class="ph ph-arrow-right"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Cargo Freight -->
+                                <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+                                    <div class="group">
+                                        <div class="relative mb-8">
+                                            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=280&fit=crop" alt="Cargo Freight" class="w-full h-56 object-cover rounded-xl">
+                                            <div class="absolute -bottom-6 left-6">
+                                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-dashed border-secondary">
+                                                    <i class="ph-fill ph-truck text-2xl text-secondary"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-dark mb-3">Fret Routier</h3>
+                                        <p class="text-medium mb-4">Transport terrestre sécurisé et ponctuel pour vos marchandises.</p>
+                                        <a href="#" onclick="navigateTo('services-view'); return false;" class="inline-flex items-center text-secondary font-semibold gap-2 hover:gap-3 transition-all">
+                                            En Savoir Plus
+                                            <span class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all">
+                                                <i class="ph ph-arrow-right"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Air Freight -->
+                                <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+                                    <div class="group">
+                                        <div class="relative mb-8">
+                                            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=280&fit=crop" alt="Air Freight" class="w-full h-56 object-cover rounded-xl">
+                                            <div class="absolute -bottom-6 left-6">
+                                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-dashed border-secondary">
+                                                    <i class="ph-fill ph-airplane-tilt text-2xl text-secondary"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-dark mb-3">Fret Aérien</h3>
+                                        <p class="text-medium mb-4">Livraison express par avion pour vos envois urgents.</p>
+                                        <a href="#" onclick="navigateTo('services-view'); return false;" class="inline-flex items-center text-secondary font-semibold gap-2 hover:gap-3 transition-all">
+                                            En Savoir Plus
+                                            <span class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all">
+                                                <i class="ph ph-arrow-right"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Sourcing -->
+                                <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+                                    <div class="group">
+                                        <div class="relative mb-8">
+                                            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=400&h=280&fit=crop" alt="Sourcing" class="w-full h-56 object-cover rounded-xl">
+                                            <div class="absolute -bottom-6 left-6">
+                                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-dashed border-secondary">
+                                                    <i class="ph-fill ph-magnifying-glass text-2xl text-secondary"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-dark mb-3">Sourcing Chine</h3>
+                                        <p class="text-medium mb-4">Recherche de fournisseurs fiables parmi +500 usines certifiées.</p>
+                                        <a href="#" onclick="navigateTo('services-view'); return false;" class="inline-flex items-center text-secondary font-semibold gap-2 hover:gap-3 transition-all">
+                                            En Savoir Plus
+                                            <span class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all">
+                                                <i class="ph ph-arrow-right"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Customs -->
+                                <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+                                    <div class="group">
+                                        <div class="relative mb-8">
+                                            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=400&h=280&fit=crop" alt="Customs" class="w-full h-56 object-cover rounded-xl">
+                                            <div class="absolute -bottom-6 left-6">
+                                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-dashed border-secondary">
+                                                    <i class="ph-fill ph-stamp text-2xl text-secondary"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-dark mb-3">Dédouanement</h3>
+                                        <p class="text-medium mb-4">Gestion complète des formalités douanières et conformité.</p>
+                                        <a href="#" onclick="navigateTo('services-view'); return false;" class="inline-flex items-center text-secondary font-semibold gap-2 hover:gap-3 transition-all">
+                                            En Savoir Plus
+                                            <span class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all">
+                                                <i class="ph ph-arrow-right"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Quality Control -->
+                                <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+                                    <div class="group">
+                                        <div class="relative mb-8">
+                                            <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=400&h=280&fit=crop" alt="Quality Control" class="w-full h-56 object-cover rounded-xl">
+                                            <div class="absolute -bottom-6 left-6">
+                                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-dashed border-secondary">
+                                                    <i class="ph-fill ph-seal-check text-2xl text-secondary"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-dark mb-3">Contrôle Qualité</h3>
+                                        <p class="text-medium mb-4">Inspection sur site avec rapport photos et vidéos détaillé.</p>
+                                        <a href="#" onclick="navigateTo('services-view'); return false;" class="inline-flex items-center text-secondary font-semibold gap-2 hover:gap-3 transition-all">
+                                            En Savoir Plus
+                                            <span class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all">
+                                                <i class="ph ph-arrow-right"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dots Indicator -->
+                        <div class="flex justify-center gap-2 mt-10">
+                            <button onclick="goToSlide(0)" class="carousel-dot w-3 h-3 rounded-full bg-secondary transition-all"></button>
+                            <button onclick="goToSlide(1)" class="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all"></button>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="text-center mt-16">
+                        <button onclick="openConsultationModal()" class="bg-secondary hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-secondary/30 inline-flex items-center gap-3">
+                            Démarrer Mon Projet
+                            <i class="ph ph-arrow-right text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Problem/Solution Section - Premium Design -->
+            <section class="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+                <!-- Background Pattern -->
+                <div class="absolute inset-0 opacity-5">
+                    <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+                </div>
+                
+                <!-- Floating Shapes -->
+                <div class="absolute top-20 left-10 w-72 h-72 bg-red-500/10 rounded-full blur-3xl animate-pulse"></div>
+                <div class="absolute bottom-20 right-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+                    <!-- Section Header -->
+                    <div class="text-center mb-10 sm:mb-16">
+                        <span class="inline-block bg-white/10 backdrop-blur-sm text-white/80 px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide mb-4 border border-white/20">
+                            POURQUOI CHOISIR JSUN?
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+                            La Différence Est <span class="text-secondary">Claire</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+                        <!-- Problem Card -->
+                        <div class="problem-card group relative bg-gradient-to-br from-red-950/50 to-slate-900/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-red-500/20 hover:border-red-500/40 transition-all duration-500 hover:transform hover:-translate-y-2">
+                            <!-- Glow Effect -->
+                            <div class="absolute inset-0 bg-red-500/5 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                            <!-- Icon Header -->
+                            <div class="relative flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-red-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <i class="ph-fill ph-warning-octagon text-2xl sm:text-3xl text-red-400"></i>
+                                </div>
+                                <div>
+                                    <span class="inline-block bg-red-500/20 text-red-400 px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">
+                                        Le Problème
+                                    </span>
+                                    <h3 class="text-lg sm:text-2xl font-bold">Importer Seul = <span class="text-red-400">Risqué</span></h3>
+                                </div>
+                            </div>
+                            
+                            <!-- Problems List -->
+                            <ul class="relative space-y-3 sm:space-y-4">
+                                <li class="problem-item flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-red-500/5 rounded-lg sm:rounded-xl border border-red-500/10 hover:bg-red-500/10 transition-colors duration-300" style="animation-delay: 0.1s;">
+                                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-red-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ph-fill ph-x text-red-400 text-sm sm:text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-white text-sm sm:text-base mb-0.5 sm:mb-1">Fournisseurs Non Fiables</h4>
+                                        <p class="text-xs sm:text-sm text-gray-400">30% des usines sur Alibaba ne sont pas vérifiées</p>
+                                    </div>
                                 </li>
-                                <li class="flex items-center space-x-3">
-                                    <i class="ph ph-x text-red-400"></i>
-                                    <span>Produits défectueux = perte d'argent</span>
+                                <li class="problem-item flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-red-500/5 rounded-lg sm:rounded-xl border border-red-500/10 hover:bg-red-500/10 transition-colors duration-300" style="animation-delay: 0.2s;">
+                                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-red-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ph-fill ph-x text-red-400 text-sm sm:text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-white text-sm sm:text-base mb-0.5 sm:mb-1">Qualité Incertaine</h4>
+                                        <p class="text-xs sm:text-sm text-gray-400">Produits défectueux = perte d'argent garantie</p>
+                                    </div>
                                 </li>
-                                <li class="flex items-center space-x-3">
-                                    <i class="ph ph-x text-red-400"></i>
-                                    <span>Paperasse douanière complexe</span>
+                                <li class="problem-item flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-red-500/5 rounded-lg sm:rounded-xl border border-red-500/10 hover:bg-red-500/10 transition-colors duration-300" style="animation-delay: 0.3s;">
+                                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-red-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ph-fill ph-x text-red-400 text-sm sm:text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-white text-sm sm:text-base mb-0.5 sm:mb-1">Paperasse Complexe</h4>
+                                        <p class="text-xs sm:text-sm text-gray-400">Douanes, taxes = cauchemar administratif</p>
+                                    </div>
                                 </li>
                             </ul>
+
+                            <!-- Decorative -->
+                            <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-red-500/10 rounded-full blur-2xl"></div>
                         </div>
-                        <!-- Solution -->
-                        <div>
-                            <span class="inline-block bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold mb-4">
-                                <i class="ph ph-check-circle mr-1"></i>LA SOLUTION
-                            </span>
-                            <h2 class="text-xl font-bold mb-4">Avec JSUN = <span class="text-green-400">Zéro Risque</span></h2>
-                            <ul class="space-y-3 text-sm">
-                                <li class="flex items-center space-x-3">
-                                    <i class="ph-fill ph-check text-green-400"></i>
-                                    <span>Fournisseurs audités sur site</span>
+
+                        <!-- Solution Card -->
+                        <div class="solution-card group relative bg-gradient-to-br from-green-950/50 to-slate-900/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-green-500/20 hover:border-green-500/40 transition-all duration-500 hover:transform hover:-translate-y-2">
+                            <!-- Glow Effect -->
+                            <div class="absolute inset-0 bg-green-500/5 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                            <!-- Icon Header -->
+                            <div class="relative flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-green-500/20 rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                    <i class="ph-fill ph-shield-check text-2xl sm:text-3xl text-green-400"></i>
+                                </div>
+                                <div>
+                                    <span class="inline-block bg-green-500/20 text-green-400 px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">
+                                        La Solution
+                                    </span>
+                                    <h3 class="text-lg sm:text-2xl font-bold">Avec JSUN = <span class="text-green-400">Zéro Risque</span></h3>
+                                </div>
+                            </div>
+                            
+                            <!-- Solutions List -->
+                            <ul class="relative space-y-3 sm:space-y-4">
+                                <li class="solution-item flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-green-500/5 rounded-lg sm:rounded-xl border border-green-500/10 hover:bg-green-500/10 transition-colors duration-300" style="animation-delay: 0.1s;">
+                                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ph-fill ph-check text-green-400 text-sm sm:text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-white text-sm sm:text-base mb-0.5 sm:mb-1">Fournisseurs Audités</h4>
+                                        <p class="text-xs sm:text-sm text-gray-400">Vérification complète de chaque usine partenaire</p>
+                                    </div>
                                 </li>
-                                <li class="flex items-center space-x-3">
-                                    <i class="ph-fill ph-check text-green-400"></i>
-                                    <span>Inspection qualité avant expédition</span>
+                                <li class="solution-item flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-green-500/5 rounded-lg sm:rounded-xl border border-green-500/10 hover:bg-green-500/10 transition-colors duration-300" style="animation-delay: 0.2s;">
+                                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ph-fill ph-check text-green-400 text-sm sm:text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-white text-sm sm:text-base mb-0.5 sm:mb-1">Inspection Qualité</h4>
+                                        <p class="text-xs sm:text-sm text-gray-400">Contrôle rigoureux avec rapport photo</p>
+                                    </div>
                                 </li>
-                                <li class="flex items-center space-x-3">
-                                    <i class="ph-fill ph-check text-green-400"></i>
-                                    <span>Service clé-en-main de A à Z</span>
+                                <li class="solution-item flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-green-500/5 rounded-lg sm:rounded-xl border border-green-500/10 hover:bg-green-500/10 transition-colors duration-300" style="animation-delay: 0.3s;">
+                                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="ph-fill ph-check text-green-400 text-sm sm:text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-white text-sm sm:text-base mb-0.5 sm:mb-1">Service Clé-en-Main</h4>
+                                        <p class="text-xs sm:text-sm text-gray-400">De A à Z: sourcing, transit, douane, livraison</p>
+                                    </div>
                                 </li>
                             </ul>
+
+                            <!-- Decorative -->
+                            <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-green-500/10 rounded-full blur-2xl"></div>
                         </div>
+                    </div>
+
+                    <!-- Bottom CTA -->
+                    <div class="text-center mt-10 sm:mt-12">
+                        <p class="text-gray-400 mb-4 sm:mb-6 text-base sm:text-lg">Rejoignez <span class="text-secondary font-bold">+500 entrepreneurs</span> qui importent en sérénité</p>
+                        <button onclick="openConsultationModal()" class="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-secondary to-orange-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:shadow-2xl hover:shadow-secondary/30 transition-all duration-300 transform hover:scale-105 w-full sm:w-auto justify-center">
+                            <span>Consultation Gratuite</span>
+                            <div class="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                <i class="ph ph-arrow-right text-lg sm:text-xl"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sourcing Opportunities Section - Premium Design -->
+            <section id="marketplace" class="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+                <!-- Background Elements -->
+                <div class="absolute inset-0 pointer-events-none">
+                    <div class="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-20 right-10 w-72 h-72 bg-secondary/5 rounded-full blur-3xl"></div>
+                    <!-- Grid Pattern -->
+                    <div class="absolute inset-0 opacity-[0.02]" style="background-image: url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23000\" fill-opacity=\"1\"%3E%3Cpath d=\"M0 0h1v40H0V0zm39 0h1v40h-1V0zM0 0h40v1H0V0zm0 39h40v1H0v-1z\"/%3E%3C/g%3E%3C/svg%3E');"></div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                    <!-- Section Header -->
+                    <div class="text-center mb-10 sm:mb-16">
+                        <span class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 sm:mb-6">
+                            <i class="ph-fill ph-package text-base sm:text-lg"></i>
+                            Marketplace
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold text-dark mb-4 sm:mb-6">
+                            Opportunités de <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-orange-500">Sourcing</span>
+                        </h2>
+                        <p class="text-medium text-sm sm:text-lg max-w-2xl mx-auto px-2">
+                            Produits pré-négociés avec les meilleures usines. Prix usine garantis.
+                        </p>
+                    </div>
+
+                    <!-- Category Filters - Premium Style -->
+                    <div class="flex overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap justify-start sm:justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 -mx-4 px-4 sm:mx-0 sm:px-0 hide-scrollbar">
+                        <button onclick="filterProducts('all')" class="filter-btn group relative px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-primary text-white shadow-lg shadow-primary/30 whitespace-nowrap flex-shrink-0">
+                            <span class="relative z-10 flex items-center gap-1 sm:gap-2">
+                                <i class="ph ph-squares-four"></i>
+                                Tous
+                            </span>
+                        </button>
+                        <button onclick="filterProducts('industrie')" class="filter-btn group relative px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-white text-dark border-2 border-gray-200 hover:border-primary hover:text-primary hover:shadow-lg whitespace-nowrap flex-shrink-0">
+                            <span class="relative z-10 flex items-center gap-1 sm:gap-2">
+                                <i class="ph ph-factory"></i>
+                                Industrie
+                            </span>
+                        </button>
+                        <button onclick="filterProducts('textile')" class="filter-btn group relative px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-white text-dark border-2 border-gray-200 hover:border-primary hover:text-primary hover:shadow-lg whitespace-nowrap flex-shrink-0">
+                            <span class="relative z-10 flex items-center gap-1 sm:gap-2">
+                                <i class="ph ph-t-shirt"></i>
+                                Textile
+                            </span>
+                        </button>
+                        <button onclick="filterProducts('electronique')" class="filter-btn group relative px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-white text-dark border-2 border-gray-200 hover:border-primary hover:text-primary hover:shadow-lg whitespace-nowrap flex-shrink-0">
+                            <span class="relative z-10 flex items-center gap-1 sm:gap-2">
+                                <i class="ph ph-cpu"></i>
+                                Électronique
+                            </span>
+                        </button>
+                        <button onclick="filterProducts('cosmetique')" class="filter-btn group relative px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-white text-dark border-2 border-gray-200 hover:border-primary hover:text-primary hover:shadow-lg whitespace-nowrap flex-shrink-0">
+                            <span class="relative z-10 flex items-center gap-1 sm:gap-2">
+                                <i class="ph ph-sparkle"></i>
+                                Cosmétique
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- Stats Bar -->
+                    <div class="grid grid-cols-3 sm:flex sm:flex-wrap justify-center gap-4 sm:gap-8 mb-8 sm:mb-12 p-4 sm:p-6 bg-white rounded-xl sm:rounded-2xl shadow-lg border border-gray-100">
+                        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg sm:rounded-xl flex items-center justify-center">
+                                <i class="ph-fill ph-package text-xl sm:text-2xl text-primary"></i>
+                            </div>
+                            <div class="text-center sm:text-left">
+                                <p class="text-lg sm:text-2xl font-bold text-dark">500+</p>
+                                <p class="text-xs sm:text-sm text-medium">Produits</p>
+                            </div>
+                        </div>
+                        <div class="w-px h-12 bg-gray-200 hidden sm:block"></div>
+                        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-secondary/10 rounded-lg sm:rounded-xl flex items-center justify-center">
+                                <i class="ph-fill ph-factory text-xl sm:text-2xl text-secondary"></i>
+                            </div>
+                            <div class="text-center sm:text-left">
+                                <p class="text-lg sm:text-2xl font-bold text-dark">120+</p>
+                                <p class="text-xs sm:text-sm text-medium">Usines</p>
+                            </div>
+                        </div>
+                        <div class="w-px h-12 bg-gray-200 hidden sm:block"></div>
+                        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-500/10 rounded-lg sm:rounded-xl flex items-center justify-center">
+                                <i class="ph-fill ph-seal-check text-xl sm:text-2xl text-green-500"></i>
+                            </div>
+                            <div class="text-center sm:text-left">
+                                <p class="text-lg sm:text-2xl font-bold text-dark">100%</p>
+                                <p class="text-xs sm:text-sm text-medium">Vérifié</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div id="sourcing-grid-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+                        <!-- Products injected by JS -->
+                    </div>
+
+                    <!-- View More CTA -->
+                    <div class="text-center mt-8 sm:mt-12">
+                        <button onclick="openConsultationModal()" class="inline-flex items-center gap-2 sm:gap-3 bg-dark text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base hover:bg-primary hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto justify-center">
+                            <span>Demander un Devis</span>
+                            <i class="ph ph-arrow-right text-lg sm:text-xl"></i>
+                        </button>
                     </div>
                 </div>
             </section>
 
             <!-- Testimonials Section -->
-            <section class="py-16 bg-light">
-                <div class="max-w-5xl mx-auto px-4 sm:px-6">
-                    <h2 class="text-2xl font-bold text-center text-dark mb-8">
-                        Ce Que Disent Nos <span class="text-primary">Clients</span>
-                    </h2>
+            <section class="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-primary/70 relative overflow-hidden">
+                <!-- Background Pattern -->
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-80 h-80 bg-secondary/30 rounded-full blur-3xl"></div>
+                </div>
 
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <!-- Testimonial 1 -->
-                        <div class="bg-white rounded-xl p-5 shadow-md">
-                            <div class="flex items-center mb-3">
-                                <div class="w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">MA</div>
-                                <div class="ml-3">
-                                    <h4 class="font-bold text-sm">Mohamed Ali</h4>
-                                    <p class="text-xs text-medium">TechnoPlus Tunisie</p>
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+                    <!-- Header -->
+                    <div class="text-center mb-8 sm:mb-12">
+                        <span class="inline-block bg-white/10 text-white px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
+                            ⭐ Témoignages
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3">
+                            Nos Clients Parlent
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base max-w-lg mx-auto">
+                            Des résultats concrets, des clients satisfaits.
+                        </p>
+                    </div>
+
+                    <!-- Testimonials Carousel -->
+                    <div class="relative">
+                        <!-- Navigation Arrows -->
+                        <button type="button" onclick="slideTestimonial('prev')" 
+                            class="absolute -left-2 sm:left-0 lg:-left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur rounded-full flex items-center justify-center hover:bg-white hover:text-slate-900 text-white transition-all duration-300 border border-white/20">
+                            <i class="ph ph-arrow-left text-base sm:text-lg"></i>
+                        </button>
+                        <button type="button" onclick="slideTestimonial('next')" 
+                            class="absolute -right-2 sm:right-0 lg:-right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur rounded-full flex items-center justify-center hover:bg-white hover:text-slate-900 text-white transition-all duration-300 border border-white/20">
+                            <i class="ph ph-arrow-right text-base sm:text-lg"></i>
+                        </button>
+
+                        <!-- Testimonial Cards Container -->
+                        <div class="overflow-hidden mx-10 sm:mx-14 lg:mx-16">
+                            <div id="testimonials-track" class="flex transition-transform duration-500 ease-out">
+                                
+                                <!-- Testimonial 1 -->
+                                <div class="w-full flex-shrink-0 px-1 sm:px-2">
+                                    <div class="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl relative">
+                                        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-5">
+                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" 
+                                                 alt="Mohamed Ali" 
+                                                 class="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover ring-2 ring-secondary/30 flex-shrink-0">
+                                            <div class="flex-1 min-w-0 text-center sm:text-left">
+                                                <div class="flex gap-0.5 justify-center sm:justify-start mb-2">
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                </div>
+                                                <p class="text-slate-700 text-sm sm:text-base lg:text-lg font-medium leading-relaxed mb-3 sm:mb-4">
+                                                    "40% d'économies sur mes machines laser. Processus transparent, équipe au top!"
+                                                </p>
+                                                <div>
+                                                    <h4 class="font-bold text-slate-900 text-sm sm:text-base">Mohamed Ali</h4>
+                                                    <p class="text-slate-500 text-xs sm:text-sm">CEO, TechnoPlus Tunisie</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="absolute bottom-2 right-4 sm:bottom-4 sm:right-6 opacity-10">
+                                            <i class="ph-fill ph-quotes text-4xl sm:text-6xl text-secondary"></i>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <p class="text-medium text-sm">"J'ai économisé 40% sur mes machines. Processus transparent."</p>
-                            <div class="flex text-yellow-400 mt-2 text-sm">
-                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+
+                                <!-- Testimonial 2 -->
+                                <div class="w-full flex-shrink-0 px-1 sm:px-2">
+                                    <div class="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl relative">
+                                        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-5">
+                                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face" 
+                                                 alt="Sarah Ben Amor" 
+                                                 class="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover ring-2 ring-primary/30 flex-shrink-0">
+                                            <div class="flex-1 min-w-0 text-center sm:text-left">
+                                                <div class="flex gap-0.5 justify-center sm:justify-start mb-2">
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                </div>
+                                                <p class="text-slate-700 text-sm sm:text-base lg:text-lg font-medium leading-relaxed mb-3 sm:mb-4">
+                                                    "Mes cosmétiques arrivent toujours impeccables. L'inspection qualité m'a rassurée."
+                                                </p>
+                                                <div>
+                                                    <h4 class="font-bold text-slate-900 text-sm sm:text-base">Sarah Ben Amor</h4>
+                                                    <p class="text-slate-500 text-xs sm:text-sm">Fondatrice, Mode & Beauty</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="absolute bottom-2 right-4 sm:bottom-4 sm:right-6 opacity-10">
+                                            <i class="ph-fill ph-quotes text-4xl sm:text-6xl text-primary"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Testimonial 3 -->
+                                <div class="w-full flex-shrink-0 px-1 sm:px-2">
+                                    <div class="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl relative">
+                                        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-5">
+                                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" 
+                                                 alt="Karim Mansour" 
+                                                 class="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover ring-2 ring-emerald-500/30 flex-shrink-0">
+                                            <div class="flex-1 min-w-0 text-center sm:text-left">
+                                                <div class="flex gap-0.5 justify-center sm:justify-start mb-2">
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                    <i class="ph-fill ph-star text-base sm:text-lg text-amber-400"></i>
+                                                </div>
+                                                <p class="text-slate-700 text-sm sm:text-base lg:text-lg font-medium leading-relaxed mb-3 sm:mb-4">
+                                                    "Équipe réactive et pro. Ils ont négocié des prix que je n'aurais jamais obtenus!"
+                                                </p>
+                                                <div>
+                                                    <h4 class="font-bold text-slate-900 text-sm sm:text-base">Karim Mansour</h4>
+                                                    <p class="text-slate-500 text-xs sm:text-sm">Directeur, ElectroMax</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="absolute bottom-2 right-4 sm:bottom-4 sm:right-6 opacity-10">
+                                            <i class="ph-fill ph-quotes text-4xl sm:text-6xl text-emerald-500"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                        <!-- Testimonial 2 -->
-                        <div class="bg-white rounded-xl p-5 shadow-md">
-                            <div class="flex items-center mb-3">
-                                <div class="w-10 h-10 bg-gradient-to-br from-secondary to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-sm">SB</div>
-                                <div class="ml-3">
-                                    <h4 class="font-bold text-sm">Sarah Ben</h4>
-                                    <p class="text-xs text-medium">Mode & Beauty</p>
-                                </div>
-                            </div>
-                            <p class="text-medium text-sm">"Service impeccable. Mes cosmétiques arrivent toujours parfaits."</p>
-                            <div class="flex text-yellow-400 mt-2 text-sm">
-                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                            </div>
-                        </div>
-                        <!-- Testimonial 3 -->
-                        <div class="bg-white rounded-xl p-5 shadow-md">
-                            <div class="flex items-center mb-3">
-                                <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm">KM</div>
-                                <div class="ml-3">
-                                    <h4 class="font-bold text-sm">Karim Mansour</h4>
-                                    <p class="text-xs text-medium">ElectroMax</p>
-                                </div>
-                            </div>
-                            <p class="text-medium text-sm">"Équipe réactive et professionnelle. Je recommande à 100%."</p>
-                            <div class="flex text-yellow-400 mt-2 text-sm">
-                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                            </div>
+
+                        <!-- Dots Indicator -->
+                        <div class="flex justify-center gap-2 mt-8">
+                            <button onclick="goToTestimonial(0)" class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white transition-all duration-300"></button>
+                            <button onclick="goToTestimonial(1)" class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300"></button>
+                            <button onclick="goToTestimonial(2)" class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300"></button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Sourcing Opportunities Section -->
-            <section class="py-16 bg-white">
-                <div class="max-w-5xl mx-auto px-4 sm:px-6">
-                    <h2 class="text-2xl font-bold text-center text-dark mb-6">
-                        Opportunités de <span class="text-secondary">Sourcing</span>
-                    </h2>
-                    <p class="text-center text-medium mb-8 text-sm">Produits pré-négociés avec les meilleures usines chinoises.</p>
-
-                    <!-- Category Filters -->
-                    <div class="flex flex-wrap justify-center gap-2 mb-8">
-                        <button onclick="filterProducts('all')" class="filter-btn active px-4 py-2 rounded-full text-sm font-medium transition-all bg-primary text-white">Tous</button>
-                        <button onclick="filterProducts('industrie')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-dark hover:bg-primary hover:text-white">Industrie</button>
-                        <button onclick="filterProducts('textile')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-dark hover:bg-primary hover:text-white">Textile</button>
-                        <button onclick="filterProducts('electronique')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-dark hover:bg-primary hover:text-white">Électronique</button>
-                        <button onclick="filterProducts('cosmetique')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-dark hover:bg-primary hover:text-white">Cosmétique</button>
+            <!-- Contact Section -->
+            <section id="contact" class="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-white via-orange-50 to-primary/10 relative overflow-hidden">
+                <!-- Background Elements -->
+                <div class="absolute top-20 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-gradient-to-bl from-secondary/25 to-transparent rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-[200px] sm:w-[420px] h-[200px] sm:h-[420px] bg-gradient-to-tr from-primary/15 to-transparent rounded-full blur-3xl"></div>
+                
+                <div class="max-w-7xl mx-auto px-4 relative z-10">
+                    <!-- Section Header -->
+                    <div class="text-center mb-10 sm:mb-16">
+                        <div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
+                            <i class="ph ph-map-pin text-base sm:text-lg"></i>
+                            Nous Contacter
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-slate-800 mb-3 sm:mb-4">
+                            On parle de votre
+                            <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"> projet</span>
+                        </h2>
+                        <p class="text-sm sm:text-lg text-slate-600 max-w-2xl mx-auto px-2">
+                            Dites-nous ce dont vous avez besoin, on revient vite avec la bonne solution.
+                        </p>
                     </div>
 
-                    <!-- Products Grid -->
-                    <div id="sourcing-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <!-- Products injected by JS -->
+                    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                        <!-- Contact Form -->
+                        <div class="bg-white rounded-2xl sm:rounded-3xl shadow-2xl shadow-slate-200/50 border border-slate-100 p-5 sm:p-8 lg:p-10 order-2 lg:order-1">
+                            <h3 class="text-xl sm:text-2xl font-bold text-slate-800 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
+                                <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center">
+                                    <i class="ph ph-envelope-simple text-white text-sm sm:text-base"></i>
+                                </span>
+                                Envoyez-nous un message
+                            </h3>
+                            
+                            <form id="contact-form" class="space-y-4 sm:space-y-5">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                                    <div class="group">
+                                        <label class="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">Nom complet *</label>
+                                        <div class="relative">
+                                            <span class="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">
+                                                <i class="ph ph-user text-lg sm:text-xl"></i>
+                                            </span>
+                                            <input type="text" name="name" required 
+                                                class="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-3.5 border-2 border-slate-200 rounded-lg sm:rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none text-sm sm:text-base"
+                                                placeholder="Votre nom">
+                                        </div>
+                                    </div>
+                                    <div class="group">
+                                        <label class="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">Email *</label>
+                                        <div class="relative">
+                                            <span class="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">
+                                                <i class="ph ph-envelope text-lg sm:text-xl"></i>
+                                            </span>
+                                            <input type="email" name="email" required 
+                                                class="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-3.5 border-2 border-slate-200 rounded-lg sm:rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none text-sm sm:text-base"
+                                                placeholder="email@exemple.com">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="group">
+                                    <label class="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">Téléphone</label>
+                                    <div class="relative">
+                                        <span class="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">
+                                            <i class="ph ph-phone text-lg sm:text-xl"></i>
+                                        </span>
+                                        <input type="tel" name="phone" 
+                                            class="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-3.5 border-2 border-slate-200 rounded-lg sm:rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none text-sm sm:text-base"
+                                            placeholder="+216 XX XXX XXX">
+                                    </div>
+                                </div>
+
+                                <div class="group">
+                                    <label class="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">Sujet *</label>
+                                    <div class="relative">
+                                        <span class="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">
+                                            <i class="ph ph-tag text-lg sm:text-xl"></i>
+                                        </span>
+                                        <select name="subject" required 
+                                            class="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-3.5 border-2 border-slate-200 rounded-lg sm:rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none appearance-none bg-white cursor-pointer text-sm sm:text-base">
+                                            <option value="">Sélectionnez un sujet</option>
+                                            <option value="sourcing">Demande de sourcing</option>
+                                            <option value="quote">Demande de devis</option>
+                                            <option value="transport">Questions transport</option>
+                                            <option value="partnership">Partenariat</option>
+                                            <option value="other">Autre</option>
+                                        </select>
+                                        <span class="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+                                            <i class="ph ph-caret-down text-base sm:text-lg"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="group">
+                                    <label class="block text-xs sm:text-sm font-semibold text-slate-700 mb-1.5 sm:mb-2">Message *</label>
+                                    <div class="relative">
+                                        <span class="absolute left-3 sm:left-4 top-3 sm:top-4 text-slate-400 group-focus-within:text-primary transition-colors">
+                                            <i class="ph ph-chat-text text-lg sm:text-xl"></i>
+                                        </span>
+                                        <textarea name="message" rows="3" required 
+                                            class="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-3.5 border-2 border-slate-200 rounded-lg sm:rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none resize-none text-sm sm:text-base"
+                                            placeholder="Votre projet..."></textarea>
+                                    </div>
+                                </div>
+
+                                <button type="submit" 
+                                    class="w-full bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base transition-all transform hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/25 flex items-center justify-center gap-2 group">
+                                    <i class="ph ph-paper-plane-tilt text-lg sm:text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                                    Envoyer
+                                </button>
+
+                                <p class="text-center text-xs sm:text-sm text-slate-500">
+                                    <i class="ph ph-shield-check text-emerald-500 mr-1"></i>
+                                    Vos données sont protégées
+                                </p>
+                            </form>
+                        </div>
+
+                        <!-- Contact Info & Map -->
+                        <div class="space-y-4 sm:space-y-6 order-1 lg:order-2">
+                            <!-- Contact Cards -->
+                            <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                                <!-- Phone -->
+                                <a href="tel:+21612345678" class="group bg-gradient-to-br from-slate-50 to-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-slate-100 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+                                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform">
+                                        <i class="ph ph-phone-call text-white text-lg sm:text-2xl"></i>
+                                    </div>
+                                    <h4 class="font-bold text-slate-800 text-sm sm:text-base mb-0.5 sm:mb-1">Téléphone</h4>
+                                    <p class="text-primary font-semibold text-xs sm:text-base">+216 12 345 678</p>
+                                    <p class="text-xs text-slate-500 mt-0.5 sm:mt-1 hidden sm:block">Lun-Ven: 9h-18h</p>
+                                </a>
+
+                                <!-- WhatsApp -->
+                                <a href="https://wa.me/21612345678" target="_blank" class="group bg-gradient-to-br from-slate-50 to-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-slate-100 hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-500/10 transition-all duration-300">
+                                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform">
+                                        <i class="ph ph-whatsapp-logo text-white text-lg sm:text-2xl"></i>
+                                    </div>
+                                    <h4 class="font-bold text-slate-800 text-sm sm:text-base mb-0.5 sm:mb-1">WhatsApp</h4>
+                                    <p class="text-emerald-600 font-semibold text-xs sm:text-base">+216 12 345 678</p>
+                                    <p class="text-xs text-slate-500 mt-0.5 sm:mt-1 hidden sm:block">Réponse rapide</p>
+                                </a>
+
+                                <!-- Email -->
+                                <a href="mailto:contact@jsun.tn" class="group bg-gradient-to-br from-slate-50 to-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-slate-100 hover:border-secondary/30 hover:shadow-xl hover:shadow-secondary/10 transition-all duration-300">
+                                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl bg-gradient-to-br from-secondary to-orange-500 flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform">
+                                        <i class="ph ph-envelope-simple text-white text-lg sm:text-2xl"></i>
+                                    </div>
+                                    <h4 class="font-bold text-slate-800 text-sm sm:text-base mb-0.5 sm:mb-1">Email</h4>
+                                    <p class="text-secondary font-semibold text-xs sm:text-base">contact@jsun.tn</p>
+                                    <p class="text-xs text-slate-500 mt-0.5 sm:mt-1 hidden sm:block">Réponse sous 24h</p>
+                                </a>
+
+                                <!-- Address -->
+                                <div class="group bg-gradient-to-br from-slate-50 to-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-slate-100 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+                                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform">
+                                        <i class="ph ph-map-pin text-white text-lg sm:text-2xl"></i>
+                                    </div>
+                                    <h4 class="font-bold text-slate-800 text-sm sm:text-base mb-0.5 sm:mb-1">Adresse</h4>
+                                    <p class="text-slate-600 text-xs sm:text-sm">Tunis, Tunisie</p>
+                                </div>
+                            </div>
+
+                            <!-- Map -->
+                            <div class="bg-white rounded-2xl sm:rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
+                                <div class="p-3 sm:p-4 bg-gradient-to-r from-primary/5 to-secondary/5 border-b border-slate-100">
+                                    <h4 class="font-bold text-slate-800 text-sm sm:text-base flex items-center gap-2">
+                                        <i class="ph ph-map-trifold text-primary"></i>
+                                        Notre Localisation
+                                    </h4>
+                                </div>
+                                <div class="relative">
+                                    <iframe 
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3194.8365385679673!2d10.1815!3d36.8065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd337f5e7ef543%3A0xd671924e714a0275!2sTunis%2C%20Tunisia!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s" 
+                                        width="100%" 
+                                        height="200" 
+                                        style="border:0;" 
+                                        allowfullscreen="" 
+                                        loading="lazy" 
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        class="grayscale hover:grayscale-0 transition-all duration-500 sm:h-[300px]">
+                                    </iframe>
+                                    <!-- Map Overlay with pin -->
+                                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                        <div class="animate-bounce">
+                                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/50">
+                                                <i class="ph-fill ph-map-pin text-white text-2xl"></i>
+                                            </div>
+                                            <div class="w-4 h-4 bg-primary/30 rounded-full mx-auto -mt-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Social Links -->
+                            <div class="bg-gradient-to-r from-primary to-blue-600 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-white">
+                                <h4 class="font-bold text-sm sm:text-base mb-3 sm:mb-4 flex items-center gap-2">
+                                    <i class="ph ph-share-network text-lg sm:text-xl"></i>
+                                    Suivez-nous
+                                </h4>
+                                <div class="flex gap-2 sm:gap-3">
+                                    <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white hover:text-primary rounded-lg sm:rounded-xl flex items-center justify-center transition-all hover:scale-110">
+                                        <i class="ph ph-facebook-logo text-xl sm:text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white hover:text-primary rounded-lg sm:rounded-xl flex items-center justify-center transition-all hover:scale-110">
+                                        <i class="ph ph-instagram-logo text-xl sm:text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white hover:text-primary rounded-lg sm:rounded-xl flex items-center justify-center transition-all hover:scale-110">
+                                        <i class="ph ph-linkedin-logo text-xl sm:text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white hover:text-primary rounded-lg sm:rounded-xl flex items-center justify-center transition-all hover:scale-110">
+                                        <i class="ph ph-tiktok-logo text-xl sm:text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white hover:text-primary rounded-lg sm:rounded-xl flex items-center justify-center transition-all hover:scale-110">
+                                        <i class="ph ph-youtube-logo text-xl sm:text-2xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Final CTA Section -->
-            <section class="py-16 bg-gradient-to-br from-primary via-blue-800 to-slate-900 text-white">
+            <section class="py-12 sm:py-16 bg-gradient-to-br from-primary via-blue-800 to-slate-900 text-white">
                 <div class="max-w-3xl mx-auto px-4 text-center">
-                    <h2 class="text-2xl font-bold mb-4">
+                    <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
                         Prêt à Lancer Votre <span class="text-secondary">Importation?</span>
                     </h2>
-                    <p class="text-blue-100 mb-6">
-                        Consultation gratuite pour découvrir comment importer en toute sérénité.
+                    <p class="text-blue-100 text-sm sm:text-base mb-5 sm:mb-6">
+                        Consultation gratuite pour découvrir comment importer en sérénité.
                     </p>
-                    <button onclick="openConsultationModal()" class="bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg">
+                    <button onclick="openConsultationModal()" class="bg-secondary hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base transition-all transform hover:scale-105 shadow-lg w-full sm:w-auto">
                         <i class="ph ph-calendar-check mr-2"></i>Réserver Ma Consultation
                     </button>
-                    <p class="mt-4 text-blue-200 text-xs">
+                    <p class="mt-3 sm:mt-4 text-blue-200 text-xs">
                         <i class="ph ph-clock mr-1"></i>Réponse garantie sous 24h
                     </p>
                 </div>
@@ -652,62 +1370,62 @@
     </main>
 
     <!-- Consultation Modal -->
-    <div id="consultation-modal" class="modal fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="modal-content bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
+    <div id="consultation-modal" class="modal fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-4">
+        <div class="modal-content bg-white rounded-xl sm:rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
             <!-- Modal Header -->
-            <div class="bg-gradient-to-r from-primary to-slate-800 text-white p-6 rounded-t-2xl">
+            <div class="bg-gradient-to-r from-primary to-slate-800 text-white p-4 sm:p-6 rounded-t-xl sm:rounded-t-2xl">
                 <div class="flex justify-between items-start">
                     <div>
-                        <span class="inline-block bg-secondary px-3 py-1 rounded-full text-xs font-bold mb-2">VIP</span>
-                        <h2 class="text-2xl font-bold">Consultation Premium</h2>
-                        <p class="text-blue-100 mt-1">Accès direct à nos experts</p>
+                        <span class="inline-block bg-secondary px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold mb-2">VIP</span>
+                        <h2 class="text-lg sm:text-2xl font-bold">Consultation Premium</h2>
+                        <p class="text-blue-100 text-xs sm:text-base mt-1">Accès direct à nos experts</p>
                     </div>
-                    <button id="close-modal" class="text-white/80 hover:text-white text-2xl">
+                    <button id="close-modal" class="text-white/80 hover:text-white text-xl sm:text-2xl">
                         <i class="ph ph-x"></i>
                     </button>
                 </div>
             </div>
 
             <!-- Modal Body -->
-            <div class="p-6">
-                <div class="bg-light rounded-xl p-4 mb-6">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="font-bold text-lg">Consultation 1-on-1</span>
-                        <span class="text-2xl font-bold text-primary">150 TND</span>
+            <div class="p-4 sm:p-6">
+                <div class="bg-light rounded-lg sm:rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
+                    <div class="flex items-center justify-between mb-2 sm:mb-3">
+                        <span class="font-bold text-sm sm:text-lg">Consultation 1-on-1</span>
+                        <span class="text-xl sm:text-2xl font-bold text-primary">150 TND</span>
                     </div>
-                    <ul class="space-y-2 text-sm text-medium">
-                        <li class="flex items-center"><i class="ph-fill ph-check-circle text-green-500 mr-2"></i>Appel vidéo 45 minutes</li>
-                        <li class="flex items-center"><i class="ph-fill ph-check-circle text-green-500 mr-2"></i>Analyse de votre projet</li>
-                        <li class="flex items-center"><i class="ph-fill ph-check-circle text-green-500 mr-2"></i>Liste fournisseurs vérifiés</li>
-                        <li class="flex items-center"><i class="ph-fill ph-check-circle text-green-500 mr-2"></i>Estimation budget détaillée</li>
+                    <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-medium">
+                        <li class="flex items-center"><i class="ph-fill ph-check-circle text-green-500 mr-1.5 sm:mr-2"></i>Appel vidéo 45 minutes</li>
+                        <li class="flex items-center"><i class="ph-fill ph-check-circle text-green-500 mr-1.5 sm:mr-2"></i>Analyse de votre projet</li>
+                        <li class="flex items-center"><i class="ph-fill ph-check-circle text-green-500 mr-1.5 sm:mr-2"></i>Liste fournisseurs vérifiés</li>
+                        <li class="flex items-center"><i class="ph-fill ph-check-circle text-green-500 mr-1.5 sm:mr-2"></i>Estimation budget</li>
                     </ul>
                 </div>
 
                 <!-- Demo Payment Form -->
-                <form id="payment-form" class="space-y-4">
+                <form id="payment-form" class="space-y-3 sm:space-y-4">
                     <div>
-                        <label class="block text-sm font-medium mb-2">Nom sur la carte</label>
-                        <input type="text" placeholder="JEAN DUPONT" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <label class="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">Nom sur la carte</label>
+                        <input type="text" placeholder="JEAN DUPONT" class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm sm:text-base">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium mb-2">Numéro de carte</label>
-                        <input type="text" placeholder="4242 4242 4242 4242" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <label class="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">Numéro de carte</label>
+                        <input type="text" placeholder="4242 4242 4242 4242" class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm sm:text-base">
                     </div>
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
                         <div>
-                            <label class="block text-sm font-medium mb-2">Expiration</label>
-                            <input type="text" placeholder="MM/AA" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <label class="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">Expiration</label>
+                            <input type="text" placeholder="MM/AA" class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm sm:text-base">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2">CVV</label>
-                            <input type="text" placeholder="123" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <label class="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">CVV</label>
+                            <input type="text" placeholder="123" class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm sm:text-base">
                         </div>
                     </div>
-                    <button type="submit" class="w-full bg-secondary hover:bg-orange-700 text-white py-4 rounded-lg font-bold text-lg transition flex items-center justify-center">
+                    <button type="submit" class="w-full bg-secondary hover:bg-orange-700 text-white py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-lg transition flex items-center justify-center">
                         <i class="ph ph-lock mr-2"></i>Payer 150 TND
                     </button>
-                    <p class="text-xs text-center text-medium">
-                        <i class="ph ph-info mr-1"></i>Mode Démo - Aucun paiement réel ne sera effectué
+                    <p class="text-[10px] sm:text-xs text-center text-medium">
+                        <i class="ph ph-info mr-1"></i>Mode Démo - Aucun paiement réel
                     </p>
                 </form>
             </div>
@@ -715,59 +1433,58 @@
     </div>
 
     <!-- Success Toast -->
-    <div id="success-toast" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-4 rounded-xl shadow-lg hidden z-50 flex items-center space-x-3">
-        <i class="ph-fill ph-check-circle text-2xl"></i>
-        <span id="toast-message">Message envoyé avec succès!</span>
+    <div id="success-toast" class="fixed bottom-4 right-4 left-4 sm:left-auto bg-green-500 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl shadow-lg hidden z-50 flex items-center space-x-2 sm:space-x-3">
+        <i class="ph-fill ph-check-circle text-xl sm:text-2xl"></i>
+        <span id="toast-message" class="text-sm sm:text-base">Message envoyé!</span>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-12">
+    <footer class="bg-slate-900 text-white py-10 sm:py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="ph-fill ph-sun-horizon text-3xl text-secondary"></i>
-                        <span class="text-xl font-bold">JSUN</span>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+                <div class="col-span-2 sm:col-span-1">
+                    <div class="flex items-center space-x-2 mb-3 sm:mb-4">
+                        <i class="ph-fill ph-sun-horizon text-2xl sm:text-3xl text-secondary"></i>
+                        <span class="text-lg sm:text-xl font-bold">JSUN</span>
                     </div>
-                    <p class="text-gray-400 text-sm">Votre partenaire pour l'import Chine-Tunisie.</p>
+                    <p class="text-gray-400 text-xs sm:text-sm">Votre partenaire pour l'import Chine-Tunisie.</p>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-4">Navigation</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
+                    <h4 class="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Navigation</h4>
+                    <ul class="space-y-1.5 sm:space-y-2 text-gray-400 text-xs sm:text-sm">
                         <li><a href="#" onclick="navigateTo('home-view')" class="hover:text-white transition">Accueil</a></li>
-                        <li><a href="#" onclick="navigateTo('about-view')" class="hover:text-white transition">À Propos</a></li>
                         <li><a href="#" onclick="navigateTo('services-view')" class="hover:text-white transition">Services</a></li>
-                        <li><a href="#" onclick="navigateTo('contact-view')" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-4">Services</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li>Sourcing Produits</li>
+                    <h4 class="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Services</h4>
+                    <ul class="space-y-1.5 sm:space-y-2 text-gray-400 text-xs sm:text-sm">
+                        <li>Sourcing</li>
                         <li>Fret Maritime</li>
                         <li>Fret Aérien</li>
                         <li>Dédouanement</li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="font-bold mb-4">Suivez-nous</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition">
-                            <i class="ph-fill ph-facebook-logo text-xl"></i>
+                <div class="col-span-2 sm:col-span-1">
+                    <h4 class="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Suivez-nous</h4>
+                    <div class="flex space-x-3 sm:space-x-4">
+                        <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition">
+                            <i class="ph-fill ph-facebook-logo text-lg sm:text-xl"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition">
-                            <i class="ph-fill ph-instagram-logo text-xl"></i>
+                        <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition">
+                            <i class="ph-fill ph-instagram-logo text-lg sm:text-xl"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition">
-                            <i class="ph-fill ph-linkedin-logo text-xl"></i>
+                        <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition">
+                            <i class="ph-fill ph-linkedin-logo text-lg sm:text-xl"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition">
-                            <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                        <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition">
+                            <i class="ph-fill ph-whatsapp-logo text-lg sm:text-xl"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+            <div class="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400 text-xs sm:text-sm">
                 <p>&copy; 2024 JSUN. Tous droits réservés.</p>
             </div>
         </div>
