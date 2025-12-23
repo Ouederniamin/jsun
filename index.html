@@ -76,11 +76,10 @@
 
                 <!-- Desktop Navigation Links -->
                 <div id="desktop-nav" style="display: none; align-items: center; gap: 32px;">
-                    <a href="#" onclick="navigateTo('home-view'); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Accueil</a>
-                    <a href="#" onclick="navigateTo('services-view'); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Services</a>
-                    <a href="#" onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'}); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Process</a>
-                    <a href="#" onclick="document.getElementById('marketplace').scrollIntoView({behavior: 'smooth'}); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Marketplace</a>
-                    <a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Contact</a>
+                    <a href="#home-view" data-section="home-view" class="nav-link active" style="color: #D4A853; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.3s;">Accueil</a>
+                    <a href="#how-it-works" data-section="how-it-works" class="nav-link" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;">Process</a>
+                    <a href="#marketplace" data-section="marketplace" class="nav-link" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;">Marketplace</a>
+                    <a href="#contact" data-section="contact" class="nav-link" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;">Contact</a>
                 </div>
 
                 <!-- Right Side: CTA + Mobile Toggle -->
@@ -102,19 +101,16 @@
             <!-- Mobile Menu Dropdown -->
             <div id="mobile-menu" style="display: none; margin-top: 8px; background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%); border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.2); overflow: hidden;">
                 <div style="padding: 16px;">
-                    <a href="#" onclick="navigateTo('home-view'); toggleMobileMenu(); return false;" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                    <a href="#home-view" data-section="home-view" class="mobile-nav-link active" style="display: flex; align-items: center; gap: 12px; color: #D4A853; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500; background: rgba(212,168,83,0.1);">
                         <i class="ph ph-house" style="font-size: 18px;"></i>Accueil
                     </a>
-                    <a href="#" onclick="navigateTo('services-view'); toggleMobileMenu(); return false;" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
-                        <i class="ph ph-briefcase" style="font-size: 18px;"></i>Services
-                    </a>
-                    <a href="#" onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu(); return false;" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                    <a href="#how-it-works" data-section="how-it-works" class="mobile-nav-link" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
                         <i class="ph ph-steps" style="font-size: 18px;"></i>Process
                     </a>
-                    <a href="#" onclick="document.getElementById('marketplace').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu(); return false;" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                    <a href="#marketplace" data-section="marketplace" class="mobile-nav-link" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
                         <i class="ph ph-storefront" style="font-size: 18px;"></i>Marketplace
                     </a>
-                    <a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu(); return false;" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                    <a href="#contact" data-section="contact" class="mobile-nav-link" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
                         <i class="ph ph-envelope" style="font-size: 18px;"></i>Contact
                     </a>
                     <div style="padding-top: 12px; margin-top: 12px; border-top: 1px solid rgba(212,168,83,0.2);">
@@ -149,6 +145,110 @@
         }
         updateNavbar();
         window.addEventListener('resize', updateNavbar);
+        
+        // Smooth scroll with offset for navbar
+        const navbarHeight = 100; // Navbar height + padding
+        
+        function smoothScrollTo(targetId) {
+            const target = document.getElementById(targetId);
+            if (target) {
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Handle nav link clicks
+        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+                smoothScrollTo(sectionId);
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu.style.display !== 'none') {
+                    toggleMobileMenu();
+                }
+            });
+        });
+        
+        // Scroll Spy - Update active link based on scroll position
+        const sections = ['home-view', 'how-it-works', 'marketplace', 'contact'];
+        
+        function updateActiveLink() {
+            const scrollPosition = window.scrollY + navbarHeight + 100;
+            
+            let currentSection = 'home-view';
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = sectionId;
+                    }
+                }
+            });
+            
+            // Update desktop nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const linkSection = link.getAttribute('data-section');
+                if (linkSection === currentSection) {
+                    link.style.color = '#D4A853';
+                    link.style.opacity = '1';
+                    link.classList.add('active');
+                } else {
+                    link.style.color = '#ffffff';
+                    link.style.opacity = '0.9';
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Update mobile nav links
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                const linkSection = link.getAttribute('data-section');
+                if (linkSection === currentSection) {
+                    link.style.color = '#D4A853';
+                    link.style.background = 'rgba(212,168,83,0.1)';
+                    link.classList.add('active');
+                } else {
+                    link.style.color = '#ffffff';
+                    link.style.background = 'transparent';
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Throttle scroll event for performance
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    updateActiveLink();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        // Initial call
+        updateActiveLink();
+        
+        // Footer nav links handler (added after DOM is ready)
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.footer-nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    smoothScrollTo(sectionId);
+                });
+            });
+        });
     </script>
 
     <!-- Main Content -->
@@ -1576,10 +1676,10 @@
                 <div>
                     <h4 class="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Navigation</h4>
                     <ul class="space-y-1.5 sm:space-y-2 text-gray-400 text-xs sm:text-sm">
-                        <li><a href="#" onclick="navigateTo('home-view'); return false;" class="hover:text-secondary transition link-underline">Accueil</a></li>
-                        <li><a href="#" onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'}); return false;" class="hover:text-secondary transition link-underline">Comment ça marche</a></li>
-                        <li><a href="#" onclick="document.getElementById('marketplace').scrollIntoView({behavior: 'smooth'}); return false;" class="hover:text-secondary transition link-underline">Marketplace</a></li>
-                        <li><a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); return false;" class="hover:text-secondary transition link-underline">Contact</a></li>
+                        <li><a href="#home-view" class="footer-nav-link hover:text-secondary transition link-underline" data-section="home-view">Accueil</a></li>
+                        <li><a href="#how-it-works" class="footer-nav-link hover:text-secondary transition link-underline" data-section="how-it-works">Comment ça marche</a></li>
+                        <li><a href="#marketplace" class="footer-nav-link hover:text-secondary transition link-underline" data-section="marketplace">Marketplace</a></li>
+                        <li><a href="#contact" class="footer-nav-link hover:text-secondary transition link-underline" data-section="contact">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -1587,10 +1687,10 @@
                 <div>
                     <h4 class="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Nos Services</h4>
                     <ul class="space-y-1.5 sm:space-y-2 text-gray-400 text-xs sm:text-sm">
-                        <li><a href="#" onclick="navigateTo('services-view'); return false;" class="hover:text-secondary transition">Sourcing Produits</a></li>
-                        <li><a href="#" onclick="navigateTo('services-view'); return false;" class="hover:text-secondary transition">Fret Maritime</a></li>
-                        <li><a href="#" onclick="navigateTo('services-view'); return false;" class="hover:text-secondary transition">Fret Aérien</a></li>
-                        <li><a href="#" onclick="navigateTo('services-view'); return false;" class="hover:text-secondary transition">Dédouanement</a></li>
+                        <li><a href="#how-it-works" class="footer-nav-link hover:text-secondary transition" data-section="how-it-works">Sourcing Produits</a></li>
+                        <li><a href="#how-it-works" class="footer-nav-link hover:text-secondary transition" data-section="how-it-works">Fret Maritime</a></li>
+                        <li><a href="#how-it-works" class="footer-nav-link hover:text-secondary transition" data-section="how-it-works">Fret Aérien</a></li>
+                        <li><a href="#how-it-works" class="footer-nav-link hover:text-secondary transition" data-section="how-it-works">Dédouanement</a></li>
                     </ul>
                 </div>
                 
