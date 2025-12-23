@@ -104,22 +104,22 @@
             </div>
 
             <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" style="display: none; margin-top: 8px; background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%); border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.2); overflow: hidden;">
+            <div id="mobile-menu" style="display: none; position: relative; z-index: 9998; margin-top: 8px; background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%); border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.2); overflow: hidden;">
                 <div style="padding: 16px;">
-                    <a href="#home-view" data-section="home-view" class="mobile-nav-link active" style="display: flex; align-items: center; gap: 12px; color: #D4A853; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500; background: rgba(212,168,83,0.1);">
+                    <a href="#home-view" data-section="home-view" class="mobile-nav-link active" style="display: flex; align-items: center; gap: 12px; color: #D4A853; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500; background: rgba(212,168,83,0.1); margin-bottom: 4px;">
                         <i class="ph ph-house" style="font-size: 18px;"></i>Accueil
                     </a>
-                    <a href="#how-it-works" data-section="how-it-works" class="mobile-nav-link" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                    <a href="#how-it-works" data-section="how-it-works" class="mobile-nav-link" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500; margin-bottom: 4px;">
                         <i class="ph ph-steps" style="font-size: 18px;"></i>Process
                     </a>
-                    <a href="#marketplace" data-section="marketplace" class="mobile-nav-link" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                    <a href="#marketplace" data-section="marketplace" class="mobile-nav-link" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500; margin-bottom: 4px;">
                         <i class="ph ph-storefront" style="font-size: 18px;"></i>Marketplace
                     </a>
                     <a href="#contact" data-section="contact" class="mobile-nav-link" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
                         <i class="ph ph-envelope" style="font-size: 18px;"></i>Contact
                     </a>
                     <div style="padding-top: 12px; margin-top: 12px; border-top: 1px solid rgba(212,168,83,0.2);">
-                        <a href="https://wa.me/21650279797" target="_blank" rel="noopener noreferrer" onclick="toggleMobileMenu();" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: #ffffff; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 15px rgba(37,211,102,0.3);">
+                        <a href="https://wa.me/21650279797" target="_blank" rel="noopener noreferrer" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: #ffffff; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 15px rgba(37,211,102,0.3);">
                             <i class="ph-fill ph-whatsapp-logo" style="font-size: 20px;"></i>
                             Contactez-nous sur WhatsApp
                         </a>
@@ -131,19 +131,39 @@
 
     <!-- Navbar Responsive Script -->
     <script>
+        // Mobile menu state
+        var mobileMenuOpen = false;
+        
         // Toggle Mobile Menu
         function toggleMobileMenu() {
             var mobileMenu = document.getElementById('mobile-menu');
             var menuIcon = document.getElementById('menu-icon');
             
-            if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
+            mobileMenuOpen = !mobileMenuOpen;
+            
+            if (mobileMenuOpen) {
                 mobileMenu.style.display = 'block';
-                menuIcon.classList.remove('ph-list');
-                menuIcon.classList.add('ph-x');
+                menuIcon.className = 'ph ph-x';
+                menuIcon.style.fontSize = '22px';
+                menuIcon.style.color = '#D4A853';
             } else {
                 mobileMenu.style.display = 'none';
-                menuIcon.classList.remove('ph-x');
-                menuIcon.classList.add('ph-list');
+                menuIcon.className = 'ph ph-list';
+                menuIcon.style.fontSize = '22px';
+                menuIcon.style.color = '#D4A853';
+            }
+        }
+        
+        // Close menu when clicking a link
+        function closeMobileMenu() {
+            mobileMenuOpen = false;
+            var mobileMenu = document.getElementById('mobile-menu');
+            var menuIcon = document.getElementById('menu-icon');
+            if (mobileMenu) mobileMenu.style.display = 'none';
+            if (menuIcon) {
+                menuIcon.className = 'ph ph-list';
+                menuIcon.style.fontSize = '22px';
+                menuIcon.style.color = '#D4A853';
             }
         }
         
@@ -151,8 +171,17 @@
         document.addEventListener('DOMContentLoaded', function() {
             var mobileMenuBtn = document.getElementById('mobile-menu-btn');
             if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleMobileMenu();
+                });
             }
+            
+            // Close menu when clicking nav links
+            document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+                link.addEventListener('click', closeMobileMenu);
+            });
         });
         
         function updateNavbar() {
@@ -161,6 +190,7 @@
             if (window.innerWidth >= 768) {
                 desktopNav.style.display = 'flex';
                 mobileBtn.style.display = 'none';
+                closeMobileMenu(); // Close menu when switching to desktop
             } else {
                 desktopNav.style.display = 'none';
                 mobileBtn.style.display = 'flex';
