@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J SUN Import - Export | Chine Tunisie</title>
+    <title>J SUN Import - Export</title>
     <meta name="description" content="J SUN - Votre partenaire de confiance pour l'import-export Chine-Tunisie. Sourcing, transit maritime, fret aérien et dédouanement.">
     
     <!-- Favicon -->
@@ -70,14 +70,14 @@
     </div>
 
     <!-- Navigation Bar -->
-    <nav id="navbar" class="nav-slide-down" style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; padding: 12px 16px;">
+    <nav id="navbar" class="nav-slide-down" style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; padding: 8px 12px;">
         <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; justify-content: space-between; height: 56px; background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%); border-radius: 9999px; padding: 0 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.2);">
+            <div style="display: flex; align-items: center; justify-content: space-between; height: 52px; background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%); border-radius: 9999px; padding: 0 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.2);">
                 
                 <!-- Logo -->
-                <a href="#" onclick="navigateTo('home-view'); return false;" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-                    <img src="https://bakzlr23hp.ufs.sh/f/L0G08vZrReEvLQxO1hnZrReEv7tnuMYPXqQwba5BHzFmZ6Np" alt="JSUN Logo" style="height: 38px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(212,168,83,0.3));">
-                    <span class="brand-text-animate" style="font-size: 22px; font-weight: 800; letter-spacing: 1px;">JSUN</span>
+                <a href="#home-view" data-section="home-view" class="nav-link" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                    <img src="https://bakzlr23hp.ufs.sh/f/L0G08vZrReEvLQxO1hnZrReEv7tnuMYPXqQwba5BHzFmZ6Np" alt="JSUN Logo" style="height: 34px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(212,168,83,0.3));">
+                    <span class="brand-text-animate hidden sm:inline" style="font-size: 20px; font-weight: 800; letter-spacing: 1px;">JSUN</span>
                 </a>
 
                 <!-- Desktop Navigation Links -->
@@ -89,17 +89,16 @@
                 </div>
 
                 <!-- Right Side: CTA + Mobile Toggle -->
-                <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
                     <!-- CTA Button -->
-                    <button onclick="openConsultationModal()" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #D4A853 0%, #B8860B 100%); color: #0f172a; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(212,168,83,0.4); transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(212,168,83,0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(212,168,83,0.4)'">
-                        <span id="cta-text-full" style="display: none;">Appel Gratuit</span>
-                        <span id="cta-text-short">Appel</span>
-                        <i class="ph ph-arrow-right"></i>
+                    <button onclick="openConsultationModal()" style="display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #D4A853 0%, #B8860B 100%); color: #0f172a; padding: 8px 14px; border-radius: 9999px; font-size: 13px; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(212,168,83,0.4); transition: all 0.3s; white-space: nowrap;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(212,168,83,0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(212,168,83,0.4)'">
+                        <i class="ph ph-phone-call" style="font-size: 16px;"></i>
+                        <span class="hidden sm:inline">Appel Gratuit</span>
                     </button>
                     
                     <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" style="display: flex; width: 40px; height: 40px; background: rgba(212,168,83,0.15); border-radius: 9999px; align-items: center; justify-content: center; border: 1px solid rgba(212,168,83,0.3); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='rgba(212,168,83,0.25)'" onmouseout="this.style.background='rgba(212,168,83,0.15)'">
-                        <i class="ph ph-list" id="menu-icon" style="font-size: 22px; color: #D4A853;"></i>
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" style="display: flex; width: 38px; height: 38px; background: rgba(212,168,83,0.15); border-radius: 9999px; align-items: center; justify-content: center; border: 1px solid rgba(212,168,83,0.3); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='rgba(212,168,83,0.25)'" onmouseout="this.style.background='rgba(212,168,83,0.15)'">
+                        <i class="ph ph-list" id="menu-icon" style="font-size: 20px; color: #D4A853;"></i>
                     </button>
                 </div>
             </div>
@@ -135,30 +134,26 @@
         function updateNavbar() {
             var desktopNav = document.getElementById('desktop-nav');
             var mobileBtn = document.getElementById('mobile-menu-btn');
-            var ctaFull = document.getElementById('cta-text-full');
-            var ctaShort = document.getElementById('cta-text-short');
             if (window.innerWidth >= 768) {
                 desktopNav.style.display = 'flex';
                 mobileBtn.style.display = 'none';
-                ctaFull.style.display = 'inline';
-                ctaShort.style.display = 'none';
             } else {
                 desktopNav.style.display = 'none';
                 mobileBtn.style.display = 'flex';
-                ctaFull.style.display = 'none';
-                ctaShort.style.display = 'inline';
             }
         }
         updateNavbar();
         window.addEventListener('resize', updateNavbar);
         
-        // Smooth scroll with offset for navbar
-        const navbarHeight = 100; // Navbar height + padding
+        // Smooth scroll with offset for navbar (smaller on mobile)
+        function getNavbarHeight() {
+            return window.innerWidth < 768 ? 70 : 90;
+        }
         
         function smoothScrollTo(targetId) {
             const target = document.getElementById(targetId);
             if (target) {
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - getNavbarHeight();
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -185,7 +180,7 @@
         const sections = ['home-view', 'how-it-works', 'marketplace', 'contact'];
         
         function updateActiveLink() {
-            const scrollPosition = window.scrollY + navbarHeight + 100;
+            const scrollPosition = window.scrollY + getNavbarHeight() + 100;
             
             let currentSection = 'home-view';
             
@@ -264,8 +259,8 @@
         <section id="home-view" class="view-section">
             <!-- Hero + VSL Section -->
             <section class="bg-slate-900 pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 relative overflow-hidden">
-                <!-- 3D Animated Background Elements -->
-                <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <!-- 3D Animated Background Elements - Hidden on mobile for performance -->
+                <div class="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
                     <!-- Glowing orbs -->
                     <div class="absolute top-20 left-10 w-72 h-72 bg-secondary/15 rounded-full blur-3xl float-slow"></div>
                     <div class="absolute bottom-10 right-10 w-96 h-96 bg-primary/15 rounded-full blur-3xl float"></div>
@@ -280,24 +275,31 @@
                     
                     <!-- 3D Grid lines -->
                     <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(212,168,83,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,83,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
-                    
-                    <!-- Gradient mesh overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/0 via-transparent to-slate-900/80"></div>
                 </div>
+                
+                <!-- Simple gradient background for mobile -->
+                <div class="absolute inset-0 md:hidden">
+                    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900"></div>
+                    <div class="absolute top-10 right-5 w-32 h-32 bg-secondary/10 rounded-full blur-2xl"></div>
+                    <div class="absolute bottom-10 left-5 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
+                </div>
+                
+                <!-- Gradient mesh overlay -->
+                <div class="absolute inset-0 bg-gradient-to-b from-slate-900/0 via-transparent to-slate-900/80"></div>
                 
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
                     <!-- Headline -->
-                    <div class="text-center mb-6 sm:mb-8">
-                        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-2 sm:mb-3 fade-in-up">
+                    <div class="text-center mb-5 sm:mb-8">
+                        <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-2 sm:mb-3 fade-in-up">
                             Importez de Chine, <span class="text-gradient-animate">Sans Risques.</span>
                         </h1>
-                        <p class="text-gray-400 text-sm sm:text-base max-w-lg mx-auto px-2 fade-in-up delay-2">
+                        <p class="text-gray-400 text-xs sm:text-base max-w-lg mx-auto px-2 fade-in-up delay-2">
                             Sourcing, transit et dédouanement. On gère tout.
                         </p>
                     </div>
 
                     <!-- Video -->
-                    <div class="max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 fade-in-scale hover-lift" style="animation-delay: 0.3s;">
+                    <div class="max-w-3xl mx-auto rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 fade-in-scale hover-lift" style="animation-delay: 0.3s;">
                         <div class="aspect-video">
                             <iframe 
                                 class="w-full h-full"
@@ -312,8 +314,8 @@
                     </div>
 
                     <!-- CTA -->
-                    <div class="text-center mt-6 sm:mt-8 fade-in-up delay-4">
-                        <button onclick="openConsultationModal()" class="bg-secondary hover:bg-gold-dark text-slate-900 px-6 sm:px-8 py-3 rounded-lg font-bold text-sm sm:text-base transition hover:scale-105 w-full sm:w-auto btn-pulse pulse-glow shadow-lg shadow-gold/30">
+                    <div class="text-center mt-5 sm:mt-8 fade-in-up delay-4 px-2">
+                        <button onclick="openConsultationModal()" class="bg-secondary hover:bg-gold-dark text-slate-900 px-5 sm:px-8 py-3 rounded-lg font-bold text-sm sm:text-base transition hover:scale-105 w-full sm:w-auto btn-pulse pulse-glow shadow-lg shadow-gold/30">
                             Réserver un Appel Gratuit
                         </button>
                     </div>
