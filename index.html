@@ -231,128 +231,134 @@
                     <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(rgba(30,58,138,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(30,58,138,0.5) 1px, transparent 1px); background-size: 40px 40px;"></div>
                 </div>
 
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-                    <!-- Header + Stats Row -->
-                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-14">
-                        <!-- Title -->
-                        <div class="lg:max-w-lg reveal">
-                            <span class="inline-block bg-slate-900 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
-                                Notre Méthode
-                            </span>
-                            <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
-                                Comment Ça <span class="text-secondary">Marche</span>
-                            </h2>
-                        </div>
-
-                        <!-- Stats -->
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 lg:gap-8 stagger-children">
-                            <div class="text-center bg-white shadow-lg shadow-slate-200/50 rounded-xl p-3 sm:p-4 hover-scale border border-slate-100">
-                                <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 counter" data-target="500">0</p>
-                                <p class="text-xs lg:text-sm text-slate-500">Imports</p>
-                            </div>
-                            <div class="text-center bg-white shadow-lg shadow-slate-200/50 rounded-xl p-3 sm:p-4 hover-scale border border-slate-100">
-                                <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 counter" data-target="10000">0</p>
-                                <p class="text-xs lg:text-sm text-slate-500">Conteneurs</p>
-                            </div>
-                            <div class="text-center bg-white shadow-lg shadow-slate-200/50 rounded-xl p-3 sm:p-4 hover-scale border border-slate-100">
-                                <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 counter" data-target="200">0</p>
-                                <p class="text-xs lg:text-sm text-slate-500">Clients</p>
-                            </div>
-                            <div class="text-center bg-white shadow-lg shadow-slate-200/50 rounded-xl p-3 sm:p-4 hover-scale border border-slate-100">
-                                <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary counter" data-target="98">0</p>
-                                <p class="text-xs lg:text-sm text-slate-500">Satisfaction</p>
-                            </div>
-                        </div>
-                    </div>
-                            <div class="text-center bg-white/5 rounded-xl p-3 sm:p-0 sm:bg-transparent hover-scale">
-                                <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary counter" data-target="98">0</p>
-                                <p class="text-xs lg:text-sm text-slate-300">Satisfaction</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Process Steps -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+                    <!-- Section Header Centered -->
+                    <div class="text-center mb-12 reveal">
+                        <span class="inline-block bg-slate-900 text-white px-5 py-2 rounded-full text-sm font-semibold mb-4 shadow-lg">
+                            Notre Méthode
+                        </span>
+                        <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-6">
+                            Comment Ça <span class="text-secondary">Marche</span>
+                        </h2>
                         
-                        <!-- Step 1 -->
-                        <div class="group bg-white backdrop-blur border border-slate-200 rounded-2xl p-5 hover:shadow-xl hover:shadow-secondary/10 transition-all duration-300 hover-lift shimmer">
-                            <div class="relative mb-4 overflow-hidden rounded-xl">
-                                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=240&fit=crop" 
-                                     alt="Consultation" 
-                                     class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                                <div class="absolute top-3 right-3 w-10 h-10 bg-secondary rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="ph-fill ph-chats text-slate-900 text-lg"></i>
-                                </div>
-                                <div class="absolute bottom-3 left-3 w-7 h-7 bg-white rounded-full flex items-center justify-center">
-                                    <span class="text-xs font-bold text-primary">01</span>
+                        <!-- Stats Row - Horizontal centered -->
+                        <div class="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8 mt-8">
+                            <div class="text-center bg-white shadow-lg shadow-slate-200/50 rounded-2xl px-6 py-4 hover-scale border border-slate-100 min-w-[120px]">
+                                <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 counter" data-target="500">0</p>
+                                <p class="text-xs lg:text-sm text-slate-500 font-medium">Imports</p>
+                            </div>
+                            <div class="text-center bg-white shadow-lg shadow-slate-200/50 rounded-2xl px-6 py-4 hover-scale border border-slate-100 min-w-[120px]">
+                                <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 counter" data-target="10000">0</p>
+                                <p class="text-xs lg:text-sm text-slate-500 font-medium">Conteneurs</p>
+                            </div>
+                            <div class="text-center bg-white shadow-lg shadow-slate-200/50 rounded-2xl px-6 py-4 hover-scale border border-slate-100 min-w-[120px]">
+                                <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 counter" data-target="200">0</p>
+                                <p class="text-xs lg:text-sm text-slate-500 font-medium">Clients</p>
+                            </div>
+                            <div class="text-center bg-gradient-to-br from-secondary to-gold-light shadow-lg shadow-secondary/20 rounded-2xl px-6 py-4 hover-scale border border-secondary/20 min-w-[120px]">
+                                <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 counter" data-target="98">0</p>
+                                <p class="text-xs lg:text-sm text-slate-800 font-medium">Satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Process Steps with connecting line -->
+                    <div class="relative mt-16">
+                        <!-- Connecting line (hidden on mobile) -->
+                        <div class="hidden lg:block absolute top-20 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-secondary via-primary to-secondary opacity-30"></div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 stagger-children">
+                        
+                            <!-- Step 1 -->
+                            <div class="group relative">
+                                <div class="bg-white rounded-2xl p-5 shadow-lg shadow-slate-200/50 border border-slate-100 hover:shadow-xl hover:shadow-secondary/20 hover:border-secondary/30 transition-all duration-300 hover-lift">
+                                    <div class="relative mb-4 overflow-hidden rounded-xl">
+                                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=240&fit=crop" 
+                                             alt="Consultation" 
+                                             class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+                                        <div class="absolute top-3 right-3 w-11 h-11 bg-gradient-to-br from-secondary to-gold-light rounded-xl flex items-center justify-center shadow-lg shadow-secondary/30">
+                                            <i class="ph-fill ph-chats text-slate-900 text-xl"></i>
+                                        </div>
+                                        <div class="absolute bottom-3 left-3 w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-md">
+                                            <span class="text-sm font-bold text-primary">01</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-2">Consultation</h3>
+                                    <p class="text-slate-500 text-sm leading-relaxed">On analyse vos besoins et on définit la meilleure stratégie.</p>
                                 </div>
                             </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-1">Consultation</h3>
-                            <p class="text-slate-600 text-sm">On analyse vos besoins et on définit la meilleure stratégie.</p>
-                        </div>
 
-                        <!-- Step 2 -->
-                        <div class="group bg-white backdrop-blur border border-slate-200 rounded-2xl p-5 hover:shadow-xl hover:shadow-secondary/10 transition-all duration-300 hover-lift shimmer">
-                            <div class="relative mb-4 overflow-hidden rounded-xl">
-                                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=240&fit=crop" 
-                                     alt="Sourcing" 
-                                     class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                                <div class="absolute top-3 right-3 w-10 h-10 bg-secondary rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="ph-fill ph-binoculars text-slate-900 text-lg"></i>
-                                </div>
-                                <div class="absolute bottom-3 left-3 w-7 h-7 bg-white rounded-full flex items-center justify-center">
-                                    <span class="text-xs font-bold text-primary">02</span>
+                            <!-- Step 2 -->
+                            <div class="group relative">
+                                <div class="bg-white rounded-2xl p-5 shadow-lg shadow-slate-200/50 border border-slate-100 hover:shadow-xl hover:shadow-secondary/20 hover:border-secondary/30 transition-all duration-300 hover-lift">
+                                    <div class="relative mb-4 overflow-hidden rounded-xl">
+                                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=240&fit=crop" 
+                                             alt="Sourcing" 
+                                             class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+                                        <div class="absolute top-3 right-3 w-11 h-11 bg-gradient-to-br from-secondary to-gold-light rounded-xl flex items-center justify-center shadow-lg shadow-secondary/30">
+                                            <i class="ph-fill ph-binoculars text-slate-900 text-xl"></i>
+                                        </div>
+                                        <div class="absolute bottom-3 left-3 w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-md">
+                                            <span class="text-sm font-bold text-primary">02</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-2">Sourcing</h3>
+                                    <p class="text-slate-500 text-sm leading-relaxed">On trouve les meilleurs fournisseurs aux meilleurs prix.</p>
                                 </div>
                             </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-1">Sourcing</h3>
-                            <p class="text-slate-600 text-sm">On trouve les meilleurs fournisseurs aux meilleurs prix.</p>
-                        </div>
 
-                        <!-- Step 3 -->
-                        <div class="group bg-white backdrop-blur border border-slate-200 rounded-2xl p-5 hover:shadow-xl hover:shadow-secondary/10 transition-all duration-300 hover-lift shimmer">
-                            <div class="relative mb-4 overflow-hidden rounded-xl">
-                                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=400&h=240&fit=crop" 
-                                     alt="Transport" 
-                                     class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                                <div class="absolute top-3 right-3 w-10 h-10 bg-secondary rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="ph-fill ph-airplane-tilt text-slate-900 text-lg"></i>
-                                </div>
-                                <div class="absolute bottom-3 left-3 w-7 h-7 bg-white rounded-full flex items-center justify-center">
-                                    <span class="text-xs font-bold text-primary">03</span>
+                            <!-- Step 3 -->
+                            <div class="group relative">
+                                <div class="bg-white rounded-2xl p-5 shadow-lg shadow-slate-200/50 border border-slate-100 hover:shadow-xl hover:shadow-secondary/20 hover:border-secondary/30 transition-all duration-300 hover-lift">
+                                    <div class="relative mb-4 overflow-hidden rounded-xl">
+                                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=400&h=240&fit=crop" 
+                                             alt="Transport" 
+                                             class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+                                        <div class="absolute top-3 right-3 w-11 h-11 bg-gradient-to-br from-secondary to-gold-light rounded-xl flex items-center justify-center shadow-lg shadow-secondary/30">
+                                            <i class="ph-fill ph-airplane-tilt text-slate-900 text-xl"></i>
+                                        </div>
+                                        <div class="absolute bottom-3 left-3 w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-md">
+                                            <span class="text-sm font-bold text-primary">03</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-2">Transport</h3>
+                                    <p class="text-slate-500 text-sm leading-relaxed">Expédition maritime ou aérienne avec suivi en temps réel.</p>
                                 </div>
                             </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-1">Transport</h3>
-                            <p class="text-slate-600 text-sm">Expédition maritime ou aérienne avec suivi en temps réel.</p>
-                        </div>
 
-                        <!-- Step 4 -->
-                        <div class="group bg-white backdrop-blur border border-slate-200 rounded-2xl p-5 hover:shadow-xl hover:shadow-secondary/10 transition-all duration-300 hover-lift shimmer">
-                            <div class="relative mb-4 overflow-hidden rounded-xl">
-                                <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=400&h=240&fit=crop" 
-                                     alt="Livraison" 
-                                     class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                                <div class="absolute top-3 right-3 w-10 h-10 bg-secondary rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="ph-fill ph-package text-slate-900 text-lg"></i>
-                                </div>
-                                <div class="absolute bottom-3 left-3 w-7 h-7 bg-white rounded-full flex items-center justify-center">
-                                    <span class="text-xs font-bold text-primary">04</span>
+                            <!-- Step 4 -->
+                            <div class="group relative">
+                                <div class="bg-white rounded-2xl p-5 shadow-lg shadow-slate-200/50 border border-slate-100 hover:shadow-xl hover:shadow-secondary/20 hover:border-secondary/30 transition-all duration-300 hover-lift">
+                                    <div class="relative mb-4 overflow-hidden rounded-xl">
+                                        <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=400&h=240&fit=crop" 
+                                             alt="Livraison" 
+                                             class="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+                                        <div class="absolute top-3 right-3 w-11 h-11 bg-gradient-to-br from-secondary to-gold-light rounded-xl flex items-center justify-center shadow-lg shadow-secondary/30">
+                                            <i class="ph-fill ph-package text-slate-900 text-xl"></i>
+                                        </div>
+                                        <div class="absolute bottom-3 left-3 w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-md">
+                                            <span class="text-sm font-bold text-primary">04</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-2">Livraison</h3>
+                                    <p class="text-slate-500 text-sm leading-relaxed">Dédouanement et livraison porte-à-porte en Tunisie.</p>
                                 </div>
                             </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-1">Livraison</h3>
-                            <p class="text-slate-600 text-sm">Dédouanement et livraison porte-à-porte en Tunisie.</p>
-                        </div>
 
+                        </div>
                     </div>
 
                     <!-- CTA Button -->
-                    <div class="text-center mt-10 reveal">
-                        <button onclick="openConsultationModal()" class="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 px-7 py-3.5 rounded-full font-semibold transition-all shadow-lg shadow-slate-900/30 hover:shadow-xl btn-pulse">
+                    <div class="text-center mt-12 reveal">
+                        <button onclick="openConsultationModal()" class="inline-flex items-center gap-3 bg-gradient-to-r from-slate-900 to-slate-800 text-white hover:from-slate-800 hover:to-slate-700 px-8 py-4 rounded-full font-bold transition-all shadow-xl shadow-slate-900/30 hover:shadow-2xl hover:scale-105 btn-pulse">
                             <span>Démarrer Votre Projet</span>
-                            <i class="ph ph-arrow-right text-lg"></i>
+                            <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
+                                <i class="ph ph-arrow-right text-slate-900"></i>
+                            </div>
                         </button>
                     </div>
                 </div>
