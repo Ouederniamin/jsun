@@ -88,17 +88,17 @@
                     <a href="#contact" data-section="contact" class="nav-link" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;">Contact</a>
                 </div>
 
-                <!-- Right Side: CTA + Mobile Toggle -->
+                <!-- Right Side: WhatsApp + Mobile Toggle -->
                 <div style="display: flex; align-items: center; gap: 8px;">
-                    <!-- CTA Button -->
-                    <button onclick="openConsultationModal()" style="display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #D4A853 0%, #B8860B 100%); color: #0f172a; padding: 8px 14px; border-radius: 9999px; font-size: 13px; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(212,168,83,0.4); transition: all 0.3s; white-space: nowrap;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(212,168,83,0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(212,168,83,0.4)'">
-                        <i class="ph ph-phone-call" style="font-size: 16px;"></i>
-                        <span class="hidden sm:inline">Appel Gratuit</span>
-                    </button>
+                    <!-- WhatsApp Button -->
+                    <a href="https://wa.me/21650279797" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: #ffffff; padding: 8px 14px; border-radius: 9999px; font-size: 13px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 15px rgba(37,211,102,0.4); transition: all 0.3s; white-space: nowrap;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(37,211,102,0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(37,211,102,0.4)'">
+                        <i class="ph-fill ph-whatsapp-logo" style="font-size: 18px;"></i>
+                        <span class="hidden sm:inline">WhatsApp</span>
+                    </a>
                     
                     <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" style="display: flex; width: 38px; height: 38px; background: rgba(212,168,83,0.15); border-radius: 9999px; align-items: center; justify-content: center; border: 1px solid rgba(212,168,83,0.3); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='rgba(212,168,83,0.25)'" onmouseout="this.style.background='rgba(212,168,83,0.15)'">
-                        <i class="ph ph-list" id="menu-icon" style="font-size: 20px; color: #D4A853;"></i>
+                    <button id="mobile-menu-btn" type="button" style="display: none; width: 40px; height: 40px; background: rgba(212,168,83,0.15); border-radius: 9999px; align-items: center; justify-content: center; border: 1px solid rgba(212,168,83,0.3); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='rgba(212,168,83,0.25)'" onmouseout="this.style.background='rgba(212,168,83,0.15)'">
+                        <i class="ph ph-list" id="menu-icon" style="font-size: 22px; color: #D4A853;"></i>
                     </button>
                 </div>
             </div>
@@ -119,10 +119,10 @@
                         <i class="ph ph-envelope" style="font-size: 18px;"></i>Contact
                     </a>
                     <div style="padding-top: 12px; margin-top: 12px; border-top: 1px solid rgba(212,168,83,0.2);">
-                        <button onclick="openConsultationModal(); toggleMobileMenu();" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #D4A853 0%, #B8860B 100%); color: #0f172a; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(212,168,83,0.3);">
-                            <i class="ph ph-phone-call" style="font-size: 18px;"></i>
-                            Appel Gratuit
-                        </button>
+                        <a href="https://wa.me/21650279797" target="_blank" rel="noopener noreferrer" onclick="toggleMobileMenu();" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: #ffffff; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 15px rgba(37,211,102,0.3);">
+                            <i class="ph-fill ph-whatsapp-logo" style="font-size: 20px;"></i>
+                            Contactez-nous sur WhatsApp
+                        </a>
                     </div>
                 </div>
             </div>
@@ -146,6 +146,14 @@
                 menuIcon.classList.add('ph-list');
             }
         }
+        
+        // Add click event listener for mobile menu button
+        document.addEventListener('DOMContentLoaded', function() {
+            var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            }
+        });
         
         function updateNavbar() {
             var desktopNav = document.getElementById('desktop-nav');
