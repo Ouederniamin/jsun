@@ -14,7 +14,10 @@
                 extend: {
                     colors: {
                         primary: '#1e3a8a',
-                        secondary: '#ea580c',
+                        secondary: '#D4A853',
+                        gold: '#D4A853',
+                        'gold-light': '#F5D76E',
+                        'gold-dark': '#B8860B',
                         dark: '#111827',
                         medium: '#4b5563',
                         light: '#f9fafb'
@@ -26,6 +29,31 @@
             }
         }
     </script>
+    <style>
+        /* Gold gradient text for brand */
+        .brand-text {
+            background: linear-gradient(135deg, #F5D76E 0%, #D4A853 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: brandShimmer 3s ease-in-out infinite;
+        }
+        @keyframes brandShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .brand-text-animate {
+            background: linear-gradient(90deg, #F5D76E, #D4A853, #B8860B, #D4A853, #F5D76E);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: goldShine 3s linear infinite;
+        }
+        @keyframes goldShine {
+            to { background-position: 200% center; }
+        }
+    </style>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="font-sans bg-light text-dark">
@@ -38,41 +66,41 @@
     <!-- Navigation Bar -->
     <nav id="navbar" class="nav-slide-down" style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; padding: 12px 16px;">
         <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; justify-content: space-between; height: 56px; background: #0f172a; border-radius: 9999px; padding: 0 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
+            <div style="display: flex; align-items: center; justify-content: space-between; height: 56px; background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%); border-radius: 9999px; padding: 0 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.2);">
                 
                 <!-- Logo -->
-                <a href="#" onclick="navigateTo('home-view'); return false;" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
-                    <i class="ph-fill ph-sun-horizon" style="font-size: 28px; color: #ea580c;"></i>
-                    <span style="font-size: 20px; font-weight: 700; color: #ffffff;">JSUN</span>
+                <a href="#" onclick="navigateTo('home-view'); return false;" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="https://bakzlr23hp.ufs.sh/f/L0G08vZrReEvLQxO1hnZrReEv7tnuMYPXqQwba5BHzFmZ6Np" alt="JSUN Logo" style="height: 38px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(212,168,83,0.3));">
+                    <span class="brand-text-animate" style="font-size: 22px; font-weight: 800; letter-spacing: 1px;">JSUN</span>
                 </a>
 
                 <!-- Desktop Navigation Links -->
                 <div id="desktop-nav" style="display: none; align-items: center; gap: 32px;">
-                    <a href="#" onclick="navigateTo('home-view'); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9;">Accueil</a>
-                    <a href="#" onclick="navigateTo('services-view'); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9;">Services</a>
-                    <a href="#" onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'}); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9;">Process</a>
-                    <a href="#" onclick="document.getElementById('marketplace').scrollIntoView({behavior: 'smooth'}); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9;">Marketplace</a>
-                    <a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9;">Contact</a>
+                    <a href="#" onclick="navigateTo('home-view'); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Accueil</a>
+                    <a href="#" onclick="navigateTo('services-view'); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Services</a>
+                    <a href="#" onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'}); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Process</a>
+                    <a href="#" onclick="document.getElementById('marketplace').scrollIntoView({behavior: 'smooth'}); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Marketplace</a>
+                    <a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); return false;" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Contact</a>
                 </div>
 
                 <!-- Right Side: CTA + Mobile Toggle -->
                 <div style="display: flex; align-items: center; gap: 12px;">
                     <!-- CTA Button -->
-                    <button onclick="openConsultationModal()" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(to right, #ea580c, #f97316); color: #ffffff; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(234,88,12,0.4);">
+                    <button onclick="openConsultationModal()" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #D4A853 0%, #B8860B 100%); color: #0f172a; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(212,168,83,0.4); transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(212,168,83,0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(212,168,83,0.4)'">
                         <span id="cta-text-full" style="display: none;">Appel Gratuit</span>
                         <span id="cta-text-short">Appel</span>
                         <i class="ph ph-arrow-right"></i>
                     </button>
                     
                     <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" style="display: flex; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 9999px; align-items: center; justify-content: center; border: none; cursor: pointer;">
-                        <i class="ph ph-list" id="menu-icon" style="font-size: 22px; color: #ffffff;"></i>
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" style="display: flex; width: 40px; height: 40px; background: rgba(212,168,83,0.15); border-radius: 9999px; align-items: center; justify-content: center; border: 1px solid rgba(212,168,83,0.3); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='rgba(212,168,83,0.25)'" onmouseout="this.style.background='rgba(212,168,83,0.15)'">
+                        <i class="ph ph-list" id="menu-icon" style="font-size: 22px; color: #D4A853;"></i>
                     </button>
                 </div>
             </div>
 
             <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" style="display: none; margin-top: 8px; background: #0f172a; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); overflow: hidden;">
+            <div id="mobile-menu" style="display: none; margin-top: 8px; background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%); border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.2); overflow: hidden;">
                 <div style="padding: 16px;">
                     <a href="#" onclick="navigateTo('home-view'); toggleMobileMenu(); return false;" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
                         <i class="ph ph-house" style="font-size: 18px;"></i>Accueil
@@ -89,8 +117,8 @@
                     <a href="#" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu(); return false;" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
                         <i class="ph ph-envelope" style="font-size: 18px;"></i>Contact
                     </a>
-                    <div style="padding-top: 12px; margin-top: 12px; border-top: 1px solid rgba(255,255,255,0.1);">
-                        <button onclick="openConsultationModal(); toggleMobileMenu();" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(to right, #ea580c, #f97316); color: #ffffff; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 600; border: none; cursor: pointer;">
+                    <div style="padding-top: 12px; margin-top: 12px; border-top: 1px solid rgba(212,168,83,0.2);">
+                        <button onclick="openConsultationModal(); toggleMobileMenu();" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #D4A853 0%, #B8860B 100%); color: #0f172a; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(212,168,83,0.3);">
                             <i class="ph ph-phone-call" style="font-size: 18px;"></i>
                             Appel Gratuit
                         </button>
@@ -164,7 +192,7 @@
 
                     <!-- CTA -->
                     <div class="text-center mt-6 sm:mt-8 fade-in-up delay-4">
-                        <button onclick="openConsultationModal()" class="bg-secondary hover:bg-orange-600 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold text-sm sm:text-base transition hover:scale-105 w-full sm:w-auto btn-pulse pulse-glow">
+                        <button onclick="openConsultationModal()" class="bg-secondary hover:bg-gold-dark text-slate-900 px-6 sm:px-8 py-3 rounded-lg font-bold text-sm sm:text-base transition hover:scale-105 w-full sm:w-auto btn-pulse pulse-glow shadow-lg shadow-gold/30">
                             Réserver un Appel Gratuit
                         </button>
                     </div>
@@ -478,7 +506,7 @@
 
                     <!-- CTA -->
                     <div class="text-center mt-16">
-                        <button onclick="openConsultationModal()" class="bg-secondary hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-secondary/30 inline-flex items-center gap-3">
+                        <button onclick="openConsultationModal()" class="bg-secondary hover:bg-gold-dark text-slate-900 px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-gold/30 inline-flex items-center gap-3">
                             Démarrer Mon Projet
                             <i class="ph ph-arrow-right text-xl"></i>
                         </button>
@@ -620,7 +648,7 @@
                     <!-- Bottom CTA -->
                     <div class="text-center mt-10 sm:mt-12 reveal">
                         <p class="text-gray-400 mb-4 sm:mb-6 text-base sm:text-lg">Rejoignez <span class="text-secondary font-bold">+500 entrepreneurs</span> qui importent en sérénité</p>
-                        <button onclick="openConsultationModal()" class="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-secondary to-orange-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:shadow-2xl hover:shadow-secondary/30 transition-all duration-300 transform hover:scale-105 w-full sm:w-auto justify-center btn-pulse pulse-glow">
+                        <button onclick="openConsultationModal()" class="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-gold-dark via-secondary to-gold-light text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:shadow-2xl hover:shadow-gold/30 transition-all duration-300 transform hover:scale-105 w-full sm:w-auto justify-center btn-pulse pulse-glow">
                             <span>Consultation Gratuite</span>
                             <div class="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-full flex items-center justify-center">
                                 <i class="ph ph-arrow-right text-lg sm:text-xl"></i>
@@ -648,7 +676,7 @@
                             Marketplace
                         </span>
                         <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold text-dark mb-4 sm:mb-6">
-                            Opportunités de <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-orange-500">Sourcing</span>
+                            Opportunités de <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-dark via-secondary to-gold-light">Sourcing</span>
                         </h2>
                         <p class="text-medium text-sm sm:text-lg max-w-2xl mx-auto px-2">
                             Produits pré-négociés avec les meilleures usines. Prix usine garantis.
@@ -879,7 +907,7 @@
             </section>
 
             <!-- Contact Section -->
-            <section id="contact" class="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-white via-orange-50 to-primary/10 relative overflow-hidden">
+            <section id="contact" class="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-white via-amber-50/50 to-primary/10 relative overflow-hidden">
                 <!-- Background Elements -->
                 <div class="absolute top-20 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-gradient-to-bl from-secondary/25 to-transparent rounded-full blur-3xl float-slow"></div>
                 <div class="absolute bottom-0 left-0 w-[200px] sm:w-[420px] h-[200px] sm:h-[420px] bg-gradient-to-tr from-primary/15 to-transparent rounded-full blur-3xl float"></div>
@@ -1020,8 +1048,8 @@
 
                                 <!-- Email -->
                                 <a href="mailto:contact@jsun.tn" class="group bg-gradient-to-br from-slate-50 to-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-slate-100 hover:border-secondary/30 hover:shadow-xl hover:shadow-secondary/10 transition-all duration-300">
-                                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl bg-gradient-to-br from-secondary to-orange-500 flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform">
-                                        <i class="ph ph-envelope-simple text-white text-lg sm:text-2xl"></i>
+                                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl bg-gradient-to-br from-secondary to-gold-light flex items-center justify-center mb-2 sm:mb-4 group-hover:scale-110 transition-transform">
+                                        <i class="ph ph-envelope-simple text-slate-900 text-lg sm:text-2xl"></i>
                                     </div>
                                     <h4 class="font-bold text-slate-800 text-sm sm:text-base mb-0.5 sm:mb-1">Email</h4>
                                     <p class="text-secondary font-semibold text-xs sm:text-base">contact@jsun.tn</p>
@@ -1113,7 +1141,7 @@
                     <p class="text-blue-100 text-sm sm:text-base mb-5 sm:mb-6">
                         Consultation gratuite pour découvrir comment importer en sérénité.
                     </p>
-                    <button onclick="openConsultationModal()" class="bg-secondary hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base transition-all transform hover:scale-105 shadow-lg w-full sm:w-auto btn-pulse pulse-glow">
+                    <button onclick="openConsultationModal()" class="bg-secondary hover:bg-gold-dark text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base transition-all transform hover:scale-105 shadow-lg shadow-gold/30 w-full sm:w-auto btn-pulse pulse-glow">
                         <i class="ph ph-calendar-check mr-2"></i>Réserver Ma Consultation
                     </button>
                     <p class="mt-3 sm:mt-4 text-blue-200 text-xs">
@@ -1322,7 +1350,7 @@
                                 <option value="autre">Autre</option>
                             </select>
                             <textarea rows="4" placeholder="Votre message..." required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"></textarea>
-                            <button type="submit" class="w-full bg-secondary hover:bg-orange-700 text-white py-4 rounded-lg font-bold text-lg transition">
+                            <button type="submit" class="w-full bg-secondary hover:bg-gold-dark text-slate-900 py-4 rounded-lg font-bold text-lg transition">
                                 <i class="ph ph-paper-plane-right mr-2"></i>Envoyer le Message
                             </button>
                         </form>
@@ -1439,7 +1467,7 @@
                             <input type="text" placeholder="123" class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm sm:text-base">
                         </div>
                     </div>
-                    <button type="submit" class="w-full bg-secondary hover:bg-orange-700 text-white py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-lg transition flex items-center justify-center">
+                    <button type="submit" class="w-full bg-secondary hover:bg-gold-dark text-slate-900 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-lg transition flex items-center justify-center">
                         <i class="ph ph-lock mr-2"></i>Payer 150 TND
                     </button>
                     <p class="text-[10px] sm:text-xs text-center text-medium">
@@ -1461,9 +1489,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 stagger-children">
                 <div class="col-span-2 sm:col-span-1">
-                    <div class="flex items-center space-x-2 mb-3 sm:mb-4">
-                        <i class="ph-fill ph-sun-horizon text-2xl sm:text-3xl text-secondary icon-spin-hover"></i>
-                        <span class="text-lg sm:text-xl font-bold">JSUN</span>
+                    <div class="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+                        <img src="https://bakzlr23hp.ufs.sh/f/L0G08vZrReEvLQxO1hnZrReEv7tnuMYPXqQwba5BHzFmZ6Np" alt="JSUN Logo" class="h-8 sm:h-10 w-auto object-contain" style="filter: drop-shadow(0 2px 4px rgba(212,168,83,0.3));">
+                        <span class="brand-text-animate text-lg sm:text-xl font-bold">JSUN</span>
                     </div>
                     <p class="text-gray-400 text-xs sm:text-sm">Votre partenaire pour l'import Chine-Tunisie.</p>
                 </div>

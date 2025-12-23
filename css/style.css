@@ -40,8 +40,8 @@ html {
 .loader-spinner {
     width: 50px;
     height: 50px;
-    border: 4px solid rgba(234, 88, 12, 0.2);
-    border-top-color: #ea580c;
+    border: 4px solid rgba(212, 168, 83, 0.2);
+    border-top-color: #D4A853;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -248,7 +248,7 @@ html {
     left: 0;
     width: 0;
     height: 2px;
-    background: #ea580c;
+    background: #D4A853;
     transition: width 0.3s ease;
 }
 
@@ -293,10 +293,10 @@ html {
 
 @keyframes pulseGlow {
     0%, 100% {
-        box-shadow: 0 0 20px rgba(234, 88, 12, 0.3);
+        box-shadow: 0 0 20px rgba(212, 168, 83, 0.3);
     }
     50% {
-        box-shadow: 0 0 40px rgba(234, 88, 12, 0.6);
+        box-shadow: 0 0 40px rgba(212, 168, 83, 0.6);
     }
 }
 
@@ -368,7 +368,7 @@ html {
    ============================================ */
 
 .text-gradient-animate {
-    background: linear-gradient(90deg, #ea580c, #f97316, #ea580c);
+    background: linear-gradient(90deg, #B8860B, #D4A853, #F5D76E, #D4A853, #B8860B);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -385,7 +385,7 @@ html {
 /* Typewriter effect */
 .typewriter {
     overflow: hidden;
-    border-right: 3px solid #ea580c;
+    border-right: 3px solid #D4A853;
     white-space: nowrap;
     animation: typing 3s steps(30) forwards, blink 0.7s step-end infinite;
 }
@@ -449,7 +449,7 @@ html {
 
 /* Highlight word with gradient animation */
 .difference-highlight {
-    background: linear-gradient(90deg, #ea580c, #f97316, #fbbf24, #ea580c);
+    background: linear-gradient(90deg, #B8860B, #D4A853, #F5D76E, #D4A853, #B8860B);
     background-size: 300% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -641,7 +641,7 @@ html {
    ============================================ */
 
 .bg-gradient-animate {
-    background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0f172a, #ea580c);
+    background: linear-gradient(-45deg, #0f172a, #1e3a8a, #0f172a, #D4A853);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
 }
@@ -1198,7 +1198,7 @@ button:active {
    ============================================ */
 
 .gradient-text {
-    background: linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #D4A853 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
