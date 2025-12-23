@@ -5,6 +5,11 @@
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 /* Hide scrollbar for horizontal scroll elements */
@@ -1447,10 +1452,30 @@ iframe.grayscale:hover {
         height: 32px !important;
     }
     
-    /* Reduce section padding on mobile */
-    section {
+    /* Reduce section padding on mobile - but NOT the hero */
+    section:not(#home-view):not(#home-view > section:first-child) {
         padding-left: 12px;
         padding-right: 12px;
+    }
+    
+    /* Hero full width on mobile */
+    #home-view,
+    #home-view > section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Hero full screen height on mobile */
+    #home-view > section:first-child {
+        min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     
     /* Smaller headings on mobile */
