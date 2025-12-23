@@ -71,7 +71,7 @@
 
     <!-- Navigation Bar -->
     <nav id="navbar" class="nav-slide-down" style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; padding: 8px 12px;">
-        <div style="max-width: 1200px; margin: 0 auto; position: relative;">
+        <div style="max-width: 1200px; margin: 0 auto; position: relative; overflow: visible;">
             <div style="display: flex; align-items: center; justify-content: space-between; height: 52px; background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%); border-radius: 9999px; padding: 0 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.2);">
                 
                 <!-- Logo -->
@@ -97,33 +97,31 @@
                     </a>
                     
                     <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" type="button" style="display: none; width: 40px; height: 40px; background: rgba(212,168,83,0.15); border-radius: 9999px; align-items: center; justify-content: center; border: 1px solid rgba(212,168,83,0.3); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='rgba(212,168,83,0.25)'" onmouseout="this.style.background='rgba(212,168,83,0.15)'">
-                        <i class="ph ph-list" id="menu-icon" style="font-size: 22px; color: #D4A853;"></i>
+                    <button id="mobile-menu-btn" type="button" onclick="var menu = document.getElementById('mobile-menu'); var icon = document.getElementById('menu-icon'); menu.classList.remove('hidden'); if(menu.style.display === 'block') { menu.style.display = 'none'; icon.className = 'ph ph-list'; } else { menu.style.display = 'block'; icon.className = 'ph ph-x'; }" style="display: none; width: 40px; height: 40px; background: rgba(212,168,83,0.15); border-radius: 9999px; align-items: center; justify-content: center; border: 1px solid rgba(212,168,83,0.3); cursor: pointer; transition: all 0.3s; z-index: 10000; position: relative;" onmouseover="this.style.background='rgba(212,168,83,0.25)'" onmouseout="this.style.background='rgba(212,168,83,0.15)'">
+                        <i class="ph ph-list" id="menu-icon" style="font-size: 22px; color: #D4A853; pointer-events: none;"></i>
                     </button>
                 </div>
             </div>
 
             <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" style="display: none; position: absolute; top: 60px; left: 0; right: 0; z-index: 9998; background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%); border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.2); overflow: hidden;">
-                <div style="padding: 16px;">
-                    <a href="#home-view" data-section="home-view" class="mobile-nav-link active" style="display: flex; align-items: center; gap: 12px; color: #D4A853; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500; background: rgba(212,168,83,0.1); margin-bottom: 4px;">
-                        <i class="ph ph-house" style="font-size: 18px;"></i>Accueil
+            <div id="mobile-menu" style="display: none; position: fixed; top: 76px; left: 12px; right: 12px; z-index: 999999; background-color: #0f172a !important; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.9); border: 1px solid rgba(212,168,83,0.5); padding: 12px; opacity: 1 !important;">
+                <a href="#home-view" data-section="home-view" class="mobile-nav-link" onclick="document.getElementById('mobile-menu').style.display='none';" style="display: flex; align-items: center; gap: 12px; color: #D4A853; padding: 14px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; background-color: rgba(212,168,83,0.2) !important; margin-bottom: 8px; font-size: 15px;">
+                    <i class="ph ph-house" style="font-size: 20px;"></i>Accueil
+                </a>
+                <a href="#how-it-works" data-section="how-it-works" class="mobile-nav-link" onclick="document.getElementById('mobile-menu').style.display='none';" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 14px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; background-color: rgba(26,26,46,0.9) !important; margin-bottom: 8px; font-size: 15px;">
+                    <i class="ph ph-steps" style="font-size: 20px;"></i>Process
+                </a>
+                <a href="#marketplace" data-section="marketplace" class="mobile-nav-link" onclick="document.getElementById('mobile-menu').style.display='none';" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 14px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; background-color: rgba(26,26,46,0.9) !important; margin-bottom: 8px; font-size: 15px;">
+                    <i class="ph ph-storefront" style="font-size: 20px;"></i>Marketplace
+                </a>
+                <a href="#contact" data-section="contact" class="mobile-nav-link" onclick="document.getElementById('mobile-menu').style.display='none';" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 14px 16px; border-radius: 12px; text-decoration: none; font-weight: 600; background-color: rgba(26,26,46,0.9) !important; margin-bottom: 8px; font-size: 15px;">
+                    <i class="ph ph-envelope" style="font-size: 20px;"></i>Contact
+                </a>
+                <div style="padding-top: 8px; margin-top: 8px; border-top: 1px solid rgba(212,168,83,0.3);">
+                    <a href="https://wa.me/21650279797" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important; color: #ffffff; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 15px rgba(37,211,102,0.4);">
+                        <i class="ph-fill ph-whatsapp-logo" style="font-size: 22px;"></i>
+                        Contactez-nous sur WhatsApp
                     </a>
-                    <a href="#how-it-works" data-section="how-it-works" class="mobile-nav-link" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500; margin-bottom: 4px;">
-                        <i class="ph ph-steps" style="font-size: 18px;"></i>Process
-                    </a>
-                    <a href="#marketplace" data-section="marketplace" class="mobile-nav-link" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500; margin-bottom: 4px;">
-                        <i class="ph ph-storefront" style="font-size: 18px;"></i>Marketplace
-                    </a>
-                    <a href="#contact" data-section="contact" class="mobile-nav-link" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
-                        <i class="ph ph-envelope" style="font-size: 18px;"></i>Contact
-                    </a>
-                    <div style="padding-top: 12px; margin-top: 12px; border-top: 1px solid rgba(212,168,83,0.2);">
-                        <a href="https://wa.me/21650279797" target="_blank" rel="noopener noreferrer" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: #ffffff; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 15px rgba(37,211,102,0.3);">
-                            <i class="ph-fill ph-whatsapp-logo" style="font-size: 20px;"></i>
-                            Contactez-nous sur WhatsApp
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -136,22 +134,35 @@
         
         // Toggle Mobile Menu
         function toggleMobileMenu() {
+            console.log('toggleMobileMenu called!');
             var mobileMenu = document.getElementById('mobile-menu');
             var menuIcon = document.getElementById('menu-icon');
             
+            console.log('mobileMenu element:', mobileMenu);
+            console.log('menuIcon element:', menuIcon);
+            console.log('mobileMenuOpen before toggle:', mobileMenuOpen);
+            
             mobileMenuOpen = !mobileMenuOpen;
             
+            console.log('mobileMenuOpen after toggle:', mobileMenuOpen);
+            
             if (mobileMenuOpen) {
+                console.log('Opening menu...');
                 mobileMenu.style.display = 'block';
+                console.log('Menu display set to:', mobileMenu.style.display);
                 menuIcon.className = 'ph ph-x';
                 menuIcon.style.fontSize = '22px';
                 menuIcon.style.color = '#D4A853';
             } else {
+                console.log('Closing menu...');
                 mobileMenu.style.display = 'none';
                 menuIcon.className = 'ph ph-list';
                 menuIcon.style.fontSize = '22px';
                 menuIcon.style.color = '#D4A853';
             }
+            
+            console.log('Final menu display:', mobileMenu.style.display);
+            console.log('Final menu computed style:', window.getComputedStyle(mobileMenu).display);
         }
         
         // Close menu when clicking a link
@@ -369,9 +380,10 @@
 
                     <!-- CTA -->
                     <div class="text-center mt-5 sm:mt-8 fade-in-up delay-4 px-2">
-                        <button onclick="openConsultationModal()" class="bg-secondary hover:bg-gold-dark text-slate-900 px-5 sm:px-8 py-3 rounded-lg font-bold text-sm sm:text-base transition hover:scale-105 w-full sm:w-auto btn-pulse pulse-glow shadow-lg shadow-gold/30">
+                        <a href="https://wa.me/21650279797" target="_blank" rel="noopener noreferrer" class="bg-secondary hover:bg-gold-dark text-slate-900 px-5 sm:px-8 py-3 rounded-lg font-bold text-sm sm:text-base transition hover:scale-105 w-full sm:w-auto btn-pulse pulse-glow shadow-lg shadow-gold/30 inline-flex items-center justify-center gap-2">
+                            <i class="ph-fill ph-whatsapp-logo text-lg"></i>
                             Réserver un Appel Gratuit
-                        </button>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -557,13 +569,13 @@
                     <div class="relative reveal-scale">
                         <!-- Navigation Arrows - Using direct onclick for maximum reliability -->
                         <button type="button" id="carousel-prev" 
-                            onclick="event.preventDefault(); console.log('PREV arrow clicked'); window.slideServices && window.slideServices('prev');"
+                            onclick="event.preventDefault(); window.slideServices && window.slideServices('prev');"
                             class="carousel-btn absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 z-30 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-secondary hover:text-white active:scale-95 transition-all duration-200 border-2 border-gray-100 cursor-pointer select-none"
                             style="touch-action: manipulation;">
                             <i class="ph ph-arrow-left text-lg sm:text-xl pointer-events-none"></i>
                         </button>
                         <button type="button" id="carousel-next" 
-                            onclick="event.preventDefault(); console.log('NEXT arrow clicked'); window.slideServices && window.slideServices('next');"
+                            onclick="event.preventDefault(); window.slideServices && window.slideServices('next');"
                             class="carousel-btn absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 z-30 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-secondary hover:text-white active:scale-95 transition-all duration-200 border-2 border-gray-100 cursor-pointer select-none"
                             style="touch-action: manipulation;">
                             <i class="ph ph-arrow-right text-lg sm:text-xl pointer-events-none"></i>
@@ -707,18 +719,18 @@
                         </div>
 
                         <!-- Dots Indicator -->
-                        <div class="flex justify-center gap-2 mt-10">
-                            <button onclick="goToSlide(0)" class="carousel-dot w-3 h-3 rounded-full bg-secondary transition-all"></button>
-                            <button onclick="goToSlide(1)" class="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all"></button>
+                        <div class="flex justify-center gap-3 mt-10">
+                            <button onclick="goToSlide(0)" class="carousel-dot" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px; border-radius: 50%; background-color: #D4A853; border: none; padding: 0; cursor: pointer;"></button>
+                            <button onclick="goToSlide(1)" class="carousel-dot" style="width: 12px; height: 12px; min-width: 12px; min-height: 12px; border-radius: 50%; background-color: #d1d5db; border: none; padding: 0; cursor: pointer;"></button>
                         </div>
                     </div>
 
                     <!-- CTA -->
                     <div class="text-center mt-16">
-                        <button onclick="openConsultationModal()" class="bg-secondary hover:bg-gold-dark text-slate-900 px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-gold/30 inline-flex items-center gap-3">
+                        <a href="https://wa.me/21650279797" target="_blank" rel="noopener noreferrer" class="bg-secondary hover:bg-gold-dark text-slate-900 px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-gold/30 inline-flex items-center gap-3">
+                            <i class="ph-fill ph-whatsapp-logo text-xl"></i>
                             Démarrer Mon Projet
-                            <i class="ph ph-arrow-right text-xl"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -903,7 +915,7 @@
                             <i class="ph-fill ph-package text-base sm:text-lg"></i>
                             Marketplace
                         </span>
-                        <h2 class="text-2xl sm:text-3xl lg:text-5xl font-bold text-dark mb-4 sm:mb-6">
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-dark mb-5 sm:mb-6 leading-tight">
                             Opportunités de <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-dark via-secondary to-gold-light">Sourcing</span>
                         </h2>
                         <p class="text-medium text-sm sm:text-lg max-w-2xl mx-auto px-2">
@@ -1125,10 +1137,10 @@
                         </div>
 
                         <!-- Dots Indicator -->
-                        <div class="flex justify-center gap-2 mt-8">
-                            <button onclick="goToTestimonial(0)" class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white transition-all duration-300"></button>
-                            <button onclick="goToTestimonial(1)" class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300"></button>
-                            <button onclick="goToTestimonial(2)" class="testimonial-dot w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300"></button>
+                        <div class="flex justify-center gap-3 mt-8">
+                            <button onclick="goToTestimonial(0)" class="testimonial-dot" style="width: 10px; height: 10px; min-width: 10px; min-height: 10px; border-radius: 50%; background-color: #ffffff; border: none; padding: 0; cursor: pointer;"></button>
+                            <button onclick="goToTestimonial(1)" class="testimonial-dot" style="width: 10px; height: 10px; min-width: 10px; min-height: 10px; border-radius: 50%; background-color: rgba(255,255,255,0.3); border: none; padding: 0; cursor: pointer;"></button>
+                            <button onclick="goToTestimonial(2)" class="testimonial-dot" style="width: 10px; height: 10px; min-width: 10px; min-height: 10px; border-radius: 50%; background-color: rgba(255,255,255,0.3); border: none; padding: 0; cursor: pointer;"></button>
                         </div>
                     </div>
                 </div>

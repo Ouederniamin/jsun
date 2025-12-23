@@ -190,6 +190,14 @@
     <main class="pt-24 pb-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
+            <!-- Back Button -->
+            <a href="index.html#marketplace" class="inline-flex items-center gap-2 text-slate-600 hover:text-secondary mb-4 sm:mb-6 transition-all group fade-in" style="animation-delay: 0.05s;">
+                <span class="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full shadow-md group-hover:shadow-lg group-hover:bg-secondary/10 transition-all">
+                    <i class="ph ph-arrow-left text-lg sm:text-xl"></i>
+                </span>
+                <span class="text-sm sm:text-base font-medium">Retour au Marketplace</span>
+            </a>
+            
             <!-- Breadcrumb -->
             <nav class="mb-6 fade-in" style="animation-delay: 0.1s;">
                 <ol class="flex items-center space-x-2 text-sm">
@@ -590,8 +598,8 @@
 
         // Modal functions
         function openConsultationModal() {
-            document.getElementById('consultation-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+            // Redirect to WhatsApp
+            window.open('https://wa.me/21650279797', '_blank');
         }
 
         function closeConsultationModal() {

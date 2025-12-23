@@ -255,45 +255,45 @@ function renderProductGrid(filter = 'all') {
         : products.filter(p => p.category === filter);
 
     container.innerHTML = filteredProducts.map(product => `
-        <a href="product.html?id=${product.id}" class="product-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer block">
+        <a href="product.html?id=${product.id}" class="product-card bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer block">
             <!-- Image -->
-            <div class="relative h-48 overflow-hidden">
+            <div class="relative h-32 sm:h-48 overflow-hidden">
                 <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                <span class="absolute top-3 left-3 ${product.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full">
+                <span class="absolute top-2 left-2 sm:top-3 sm:left-3 ${product.badgeColor} text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full">
                     ${product.badge}
                 </span>
-                <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 text-xs font-medium text-primary">
-                    <i class="ph ph-clock mr-1"></i>${product.timeline}
+                <div class="absolute top-2 right-2 sm:top-3 sm:right-3 bg-white/90 backdrop-blur-sm rounded-full px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium text-primary">
+                    <i class="ph ph-clock mr-0.5 sm:mr-1"></i>${product.timeline}
                 </div>
             </div>
 
             <!-- Content -->
-            <div class="p-5">
-                <span class="text-xs text-secondary font-semibold uppercase tracking-wide">${getCategoryLabel(product.category)}</span>
-                <h3 class="text-lg font-bold text-dark mt-1 mb-2 line-clamp-2">${product.name}</h3>
+            <div class="p-3 sm:p-5">
+                <span class="text-[10px] sm:text-xs text-secondary font-semibold uppercase tracking-wide">${getCategoryLabel(product.category)}</span>
+                <h3 class="text-sm sm:text-lg font-bold text-dark mt-0.5 sm:mt-1 mb-1 sm:mb-2 line-clamp-2 leading-tight">${product.name}</h3>
                 
-                <!-- Price Grid -->
-                <div class="grid grid-cols-3 gap-2 mt-4 text-center">
-                    <div class="bg-light rounded-lg py-2">
-                        <div class="text-xs text-medium">Usine</div>
-                        <div class="font-bold text-primary">${formatPrice(product.prices.factory)}</div>
+                <!-- Price Grid - Simplified for mobile -->
+                <div class="grid grid-cols-3 gap-1 sm:gap-2 mt-2 sm:mt-4 text-center">
+                    <div class="bg-light rounded-md sm:rounded-lg py-1 sm:py-2">
+                        <div class="text-[9px] sm:text-xs text-medium">Usine</div>
+                        <div class="font-bold text-primary text-[11px] sm:text-base">${formatPrice(product.prices.factory)}</div>
                     </div>
-                    <div class="bg-light rounded-lg py-2">
-                        <div class="text-xs text-medium">Rendu</div>
-                        <div class="font-bold text-dark">${formatPrice(product.prices.landed)}</div>
+                    <div class="bg-light rounded-md sm:rounded-lg py-1 sm:py-2">
+                        <div class="text-[9px] sm:text-xs text-medium">Rendu</div>
+                        <div class="font-bold text-dark text-[11px] sm:text-base">${formatPrice(product.prices.landed)}</div>
                     </div>
-                    <div class="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg py-2">
-                        <div class="text-xs opacity-90">Revente</div>
-                        <div class="font-bold">${formatPrice(product.prices.resell)}</div>
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-md sm:rounded-lg py-1 sm:py-2">
+                        <div class="text-[9px] sm:text-xs opacity-90">Revente</div>
+                        <div class="font-bold text-[11px] sm:text-base">${formatPrice(product.prices.resell)}</div>
                     </div>
                 </div>
 
                 <!-- MOQ & CTA -->
-                <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
-                    <span class="text-sm text-medium"><i class="ph ph-package mr-1"></i>MOQ: ${product.moq}</span>
-                    <span class="bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded-lg text-sm font-semibold transition inline-flex items-center gap-2">
+                <div class="flex items-center justify-between mt-2 sm:mt-4 pt-2 sm:pt-4 border-t border-gray-100">
+                    <span class="text-[10px] sm:text-sm text-medium flex items-center"><i class="ph ph-package mr-0.5 sm:mr-1"></i>MOQ: ${product.moq}</span>
+                    <span class="bg-primary hover:bg-blue-800 text-white px-2 sm:px-4 py-1 sm:py-2 rounded-md sm:rounded-lg text-[10px] sm:text-sm font-semibold transition inline-flex items-center gap-1 sm:gap-2">
                         Voir Détails
-                        <i class="ph ph-arrow-right"></i>
+                        <i class="ph ph-arrow-right text-xs sm:text-base"></i>
                     </span>
                 </div>
             </div>
@@ -416,9 +416,9 @@ function openProductDetail(id) {
 
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <button onclick="openConsultationModal()" class="flex-1 bg-secondary hover:bg-orange-700 text-white py-4 rounded-xl font-bold text-lg transition flex items-center justify-center">
-                        <i class="ph ph-phone-call mr-2"></i>Demander un Devis
-                    </button>
+                    <a href="https://wa.me/21650279797" target="_blank" rel="noopener noreferrer" class="flex-1 bg-secondary hover:bg-gold-dark text-slate-900 py-4 rounded-xl font-bold text-lg transition flex items-center justify-center">
+                        <i class="ph-fill ph-whatsapp-logo mr-2 text-xl"></i>Demander un Devis
+                    </a>
                     <button onclick="showToast('Échantillon ajouté à votre panier!')" class="flex-1 bg-primary hover:bg-blue-800 text-white py-4 rounded-xl font-bold text-lg transition flex items-center justify-center">
                         <i class="ph ph-shopping-cart mr-2"></i>Commander Échantillon
                     </button>

@@ -91,8 +91,8 @@ if (mobileMenuBtn) {
 // ============================================
 
 function openConsultationModal() {
-    consultationModal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // Prevent background scroll
+    // Redirect to WhatsApp
+    window.open('https://wa.me/21650279797', '_blank');
 }
 
 function closeConsultationModal() {
@@ -256,8 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize lazy loading
     lazyLoadImages();
-
-    console.log('🚀 JSUN App Initialized');
 });
 
 // Expose core functions globally for inline onclick handlers
@@ -325,8 +323,6 @@ const carousel = {
 };
 
 function initServicesCarousel() {
-    console.log('=== initServicesCarousel (Infinite + Drag) ===');
-    
     carousel.track = document.getElementById('services-carousel');
     carousel.wrapper = document.getElementById('carousel-wrapper');
     
@@ -394,8 +390,6 @@ function initServicesCarousel() {
     
     // Start auto-slide
     startAutoSlide();
-    
-    console.log('Infinite carousel with drag ready!');
 }
 
 // Drag handlers
@@ -466,8 +460,6 @@ function setPosition(animate = true) {
 function slideServices(direction) {
     if (carousel.isTransitioning) return;
     
-    console.log('Slide:', direction, 'Current index:', carousel.currentIndex);
-    
     carousel.isTransitioning = true;
     carousel.currentIndex += (direction === 'next' ? 1 : -1);
     setPosition(true);
@@ -487,13 +479,11 @@ function handleInfiniteReset() {
     if (carousel.currentIndex >= originalCount + cloneCount) {
         carousel.currentIndex = cloneCount;
         setPosition(false);
-        console.log('Reset to start:', carousel.currentIndex);
     }
     // If we've moved into the prepended clones (before real items)
     else if (carousel.currentIndex < cloneCount) {
         carousel.currentIndex = originalCount + cloneCount - 1;
         setPosition(false);
-        console.log('Reset to end:', carousel.currentIndex);
     }
     
     updateDots();
