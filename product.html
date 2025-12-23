@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail Produit - JSUN Import Chine Tunisie</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#D4A853',
+                        gold: '#D4A853',
+                        'gold-light': '#F5D76E',
+                        'gold-dark': '#B8860B',
+                        dark: '#1f2937',
+                        light: '#f8fafc',
+                        medium: '#6b7280'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+    
+    <!-- Brand Animation Styles -->
+    <style>
+        .brand-text {
+            background: linear-gradient(135deg, #B8860B 0%, #D4A853 25%, #F5D76E 50%, #D4A853 75%, #B8860B 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .brand-text-animate {
+            background: linear-gradient(135deg, #B8860B 0%, #D4A853 25%, #F5D76E 50%, #D4A853 75%, #B8860B 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: goldShine 3s linear infinite;
+        }
+        @keyframes goldShine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        /* Loading Skeleton */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        /* Fade in animation */
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-sans bg-light text-dark">
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; padding: 12px 16px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: flex; align-items: center; justify-content: space-between; height: 56px; background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%); border-radius: 9999px; padding: 0 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.2);">
+                
+                <!-- Logo -->
+                <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="https://bakzlr23hp.ufs.sh/f/L0G08vZrReEvLQxO1hnZrReEv7tnuMYPXqQwba5BHzFmZ6Np" alt="JSUN Logo" style="height: 38px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(212,168,83,0.3));">
+                    <span class="brand-text-animate" style="font-size: 22px; font-weight: 800; letter-spacing: 1px;">JSUN</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div id="desktop-nav" style="display: none; align-items: center; gap: 32px;">
+                    <a href="index.html" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Accueil</a>
+                    <a href="index.html#how-it-works" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Services</a>
+                    <a href="index.html#marketplace" style="color: #D4A853; font-size: 14px; font-weight: 600; text-decoration: none;">Marketplace</a>
+                    <a href="index.html#contact" style="color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; opacity: 0.9; transition: all 0.3s;" onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#ffffff'">Contact</a>
+                </div>
+
+                <!-- Right Side: CTA + Mobile Toggle -->
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <!-- CTA Button -->
+                    <button onclick="openConsultationModal()" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #D4A853 0%, #B8860B 100%); color: #0f172a; padding: 10px 20px; border-radius: 9999px; font-size: 14px; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(212,168,83,0.4); transition: all 0.3s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(212,168,83,0.5)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(212,168,83,0.4)'">
+                        <span id="cta-text-full" style="display: none;">Appel Gratuit</span>
+                        <span id="cta-text-short">Appel</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" style="display: flex; width: 40px; height: 40px; background: rgba(212,168,83,0.15); border-radius: 9999px; align-items: center; justify-content: center; border: 1px solid rgba(212,168,83,0.3); cursor: pointer; transition: all 0.3s;">
+                        <i class="ph ph-list" id="menu-icon" style="font-size: 22px; color: #D4A853;"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" style="display: none; margin-top: 8px; background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%); border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); border: 1px solid rgba(212,168,83,0.2); overflow: hidden;">
+                <div style="padding: 16px;">
+                    <a href="index.html" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                        <i class="ph ph-house" style="font-size: 18px;"></i>Accueil
+                    </a>
+                    <a href="index.html#how-it-works" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                        <i class="ph ph-briefcase" style="font-size: 18px;"></i>Services
+                    </a>
+                    <a href="index.html#marketplace" style="display: flex; align-items: center; gap: 12px; color: #D4A853; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500; background: rgba(212,168,83,0.1);">
+                        <i class="ph ph-storefront" style="font-size: 18px;"></i>Marketplace
+                    </a>
+                    <a href="index.html#contact" style="display: flex; align-items: center; gap: 12px; color: #ffffff; padding: 12px 16px; border-radius: 12px; text-decoration: none; font-weight: 500;">
+                        <i class="ph ph-envelope" style="font-size: 18px;"></i>Contact
+                    </a>
+                    <div style="padding-top: 12px; margin-top: 12px; border-top: 1px solid rgba(212,168,83,0.2);">
+                        <button onclick="openConsultationModal()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #D4A853 0%, #B8860B 100%); color: #0f172a; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; border: none; cursor: pointer;">
+                            <i class="ph ph-phone-call" style="font-size: 18px;"></i>
+                            Appel Gratuit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar Responsive Script -->
+    <script>
+        function updateNavbar() {
+            var desktopNav = document.getElementById('desktop-nav');
+            var mobileBtn = document.getElementById('mobile-menu-btn');
+            var ctaFull = document.getElementById('cta-text-full');
+            var ctaShort = document.getElementById('cta-text-short');
+            if (window.innerWidth >= 768) {
+                desktopNav.style.display = 'flex';
+                mobileBtn.style.display = 'none';
+                ctaFull.style.display = 'inline';
+                ctaShort.style.display = 'none';
+            } else {
+                desktopNav.style.display = 'none';
+                mobileBtn.style.display = 'flex';
+                ctaFull.style.display = 'none';
+                ctaShort.style.display = 'inline';
+            }
+        }
+        updateNavbar();
+        window.addEventListener('resize', updateNavbar);
+        
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            var icon = document.getElementById('menu-icon');
+            if (menu.style.display === 'none') {
+                menu.style.display = 'block';
+                icon.className = 'ph ph-x';
+            } else {
+                menu.style.display = 'none';
+                icon.className = 'ph ph-list';
+            }
+        }
+    </script>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Breadcrumb -->
+            <nav class="mb-6 fade-in" style="animation-delay: 0.1s;">
+                <ol class="flex items-center space-x-2 text-sm">
+                    <li><a href="index.html" class="text-slate-500 hover:text-secondary transition">Accueil</a></li>
+                    <li><i class="ph ph-caret-right text-slate-400"></i></li>
+                    <li><a href="index.html#marketplace" class="text-slate-500 hover:text-secondary transition">Marketplace</a></li>
+                    <li><i class="ph ph-caret-right text-slate-400"></i></li>
+                    <li id="breadcrumb-product" class="text-slate-900 font-medium">Chargement...</li>
+                </ol>
+            </nav>
+
+            <!-- Product Content Container -->
+            <div id="product-content">
+                <!-- Loading Skeleton -->
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+                    <div class="skeleton rounded-3xl h-96"></div>
+                    <div class="space-y-4">
+                        <div class="skeleton h-8 w-32 rounded-full"></div>
+                        <div class="skeleton h-12 w-3/4 rounded-lg"></div>
+                        <div class="skeleton h-24 rounded-lg"></div>
+                        <div class="skeleton h-48 rounded-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Consultation Modal -->
+    <div id="consultation-modal" class="modal fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-4">
+        <div class="modal-content bg-white rounded-xl sm:rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
+            <div class="bg-gradient-to-r from-primary to-slate-800 text-white p-4 sm:p-6 rounded-t-xl sm:rounded-t-2xl">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span class="inline-block bg-secondary px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold mb-2 text-slate-900">DEVIS</span>
+                        <h2 class="text-lg sm:text-2xl font-bold">Demande de Devis</h2>
+                        <p class="text-blue-100 text-xs sm:text-base mt-1">Réponse sous 24h garantie</p>
+                    </div>
+                    <button onclick="closeConsultationModal()" class="text-white/80 hover:text-white text-xl sm:text-2xl">
+                        <i class="ph ph-x"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-4 sm:p-6">
+                <form id="quote-form" class="space-y-4">
+                    <input type="hidden" id="product-id-input" value="">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="Prénom" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
+                        <input type="text" placeholder="Nom" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
+                    </div>
+                    <input type="email" placeholder="Email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
+                    <input type="tel" placeholder="Téléphone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
+                    <textarea rows="3" placeholder="Quantité souhaitée et détails..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent resize-none"></textarea>
+                    <button type="submit" class="w-full bg-secondary hover:bg-gold-dark text-slate-900 py-4 rounded-lg font-bold text-lg transition">
+                        <i class="ph ph-paper-plane-right mr-2"></i>Envoyer la Demande
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="success-toast" class="fixed bottom-4 right-4 left-4 sm:left-auto bg-green-500 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl shadow-lg hidden z-50 flex items-center space-x-2 sm:space-x-3">
+        <i class="ph-fill ph-check-circle text-xl sm:text-2xl"></i>
+        <span id="toast-message" class="text-sm sm:text-base">Message envoyé!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-10 sm:py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+                <!-- Brand Column -->
+                <div class="col-span-2 sm:col-span-1">
+                    <a href="index.html" class="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+                        <img src="https://bakzlr23hp.ufs.sh/f/L0G08vZrReEvLQxO1hnZrReEv7tnuMYPXqQwba5BHzFmZ6Np" alt="JSUN Logo" class="h-8 sm:h-10 w-auto object-contain" style="filter: drop-shadow(0 2px 4px rgba(212,168,83,0.3));">
+                        <span class="brand-text-animate text-lg sm:text-xl font-bold">JSUN</span>
+                    </a>
+                    <p class="text-gray-400 text-xs sm:text-sm mb-4">Votre partenaire de confiance pour l'import Chine-Tunisie. Sourcing, transit et dédouanement.</p>
+                    <!-- Social Media -->
+                    <div class="flex space-x-3">
+                        <a href="https://www.facebook.com/profile.php?id=61583062295339" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-600 transition" title="Facebook">
+                            <i class="ph-fill ph-facebook-logo text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61583062295339" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-pink-600 transition" title="Instagram">
+                            <i class="ph-fill ph-instagram-logo text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/21650279797" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-green-600 transition" title="WhatsApp">
+                            <i class="ph-fill ph-whatsapp-logo text-lg sm:text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Navigation Column -->
+                <div>
+                    <h4 class="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Navigation</h4>
+                    <ul class="space-y-1.5 sm:space-y-2 text-gray-400 text-xs sm:text-sm">
+                        <li><a href="index.html" class="hover:text-secondary transition">Accueil</a></li>
+                        <li><a href="index.html#how-it-works" class="hover:text-secondary transition">Comment ça marche</a></li>
+                        <li><a href="index.html#marketplace" class="hover:text-secondary transition">Marketplace</a></li>
+                        <li><a href="index.html#contact" class="hover:text-secondary transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Categories Column -->
+                <div>
+                    <h4 class="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Catégories</h4>
+                    <ul class="space-y-1.5 sm:space-y-2 text-gray-400 text-xs sm:text-sm">
+                        <li><a href="index.html#marketplace" class="hover:text-secondary transition">Industrie & Atelier</a></li>
+                        <li><a href="index.html#marketplace" class="hover:text-secondary transition">Textile & Mode</a></li>
+                        <li><a href="index.html#marketplace" class="hover:text-secondary transition">Électronique</a></li>
+                        <li><a href="index.html#marketplace" class="hover:text-secondary transition">Cosmétique & Beauté</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Column -->
+                <div class="col-span-2 sm:col-span-1">
+                    <h4 class="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Contact</h4>
+                    <ul class="space-y-2 sm:space-y-3 text-gray-400 text-xs sm:text-sm">
+                        <li>
+                            <a href="mailto:ste.jsun@gmail.com" class="flex items-start gap-2 hover:text-secondary transition">
+                                <i class="ph ph-envelope text-secondary mt-0.5"></i>
+                                <span>ste.jsun@gmail.com</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/21650279797" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-secondary transition">
+                                <i class="ph ph-whatsapp-logo text-secondary mt-0.5"></i>
+                                <span>+216 50 279 797</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://maps.google.com/?q=Rue+Takmili+2016+Z4+Sahloul+4054+Sousse+Tunisia" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 hover:text-secondary transition">
+                                <i class="ph ph-map-pin text-secondary mt-0.5 flex-shrink-0"></i>
+                                <span>Rue Takmili 2016 Z4, Sahloul 4054 Sousse, Tunisie</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400 text-xs sm:text-sm">
+                <p>&copy; 2025 JSUN. Tous droits réservés. | <a href="mailto:ste.jsun@gmail.com" class="hover:text-secondary transition">ste.jsun@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Products Data -->
+    <script src="js/products.js"></script>
+    
+    <!-- Product Page Script -->
+    <script>
+        // Get product ID from URL
+        function getProductIdFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return parseInt(params.get('id'));
+        }
+
+        // Format price
+        function formatPrice(price) {
+            return new Intl.NumberFormat('fr-TN').format(price);
+        }
+
+        // Load product details
+        function loadProductDetails() {
+            const productId = getProductIdFromURL();
+            const product = products.find(p => p.id === productId);
+
+            if (!product) {
+                document.getElementById('product-content').innerHTML = `
+                    <div class="text-center py-20">
+                        <div class="w-24 h-24 mx-auto bg-red-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="ph ph-warning text-4xl text-red-500"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900 mb-4">Produit non trouvé</h2>
+                        <p class="text-slate-500 mb-8">Le produit que vous recherchez n'existe pas ou a été supprimé.</p>
+                        <a href="index.html#marketplace" class="inline-flex items-center gap-2 bg-secondary hover:bg-gold-dark text-slate-900 px-6 py-3 rounded-full font-bold transition">
+                            <i class="ph ph-arrow-left"></i>
+                            Retour au Marketplace
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Update page title and breadcrumb
+            document.title = `${product.name} - JSUN Import`;
+            document.getElementById('breadcrumb-product').textContent = product.name;
+            document.getElementById('product-id-input').value = product.id;
+
+            // Render product details
+            document.getElementById('product-content').innerHTML = `
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 fade-in">
+                    <!-- Product Image -->
+                    <div class="relative">
+                        <div class="sticky top-28">
+                            <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-300/50">
+                                <img src="${product.image}" alt="${product.name}" class="w-full aspect-[4/3] object-cover">
+                                <div class="absolute top-4 left-4 flex gap-2">
+                                    <span class="${product.badgeColor} text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                                        ${product.badge}
+                                    </span>
+                                </div>
+                                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full text-sm font-semibold shadow-lg flex items-center gap-2">
+                                    <i class="ph ph-clock text-secondary"></i>
+                                    ${product.timeline}
+                                </div>
+                            </div>
+                            
+                            <!-- Quick Stats -->
+                            <div class="grid grid-cols-3 gap-4 mt-6">
+                                <div class="bg-white rounded-xl p-4 shadow-lg border border-slate-100 text-center">
+                                    <div class="w-10 h-10 mx-auto bg-secondary/10 rounded-full flex items-center justify-center mb-2">
+                                        <i class="ph-fill ph-package text-xl text-secondary"></i>
+                                    </div>
+                                    <p class="text-xs text-slate-500">MOQ</p>
+                                    <p class="font-bold text-slate-900">${product.moq}</p>
+                                </div>
+                                <div class="bg-white rounded-xl p-4 shadow-lg border border-slate-100 text-center">
+                                    <div class="w-10 h-10 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-2">
+                                        <i class="ph-fill ph-clock text-xl text-primary"></i>
+                                    </div>
+                                    <p class="text-xs text-slate-500">Délai</p>
+                                    <p class="font-bold text-slate-900">${product.timeline}</p>
+                                </div>
+                                <div class="bg-white rounded-xl p-4 shadow-lg border border-slate-100 text-center">
+                                    <div class="w-10 h-10 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-2">
+                                        <i class="ph-fill ph-seal-check text-xl text-green-600"></i>
+                                    </div>
+                                    <p class="text-xs text-slate-500">Qualité</p>
+                                    <p class="font-bold text-slate-900">Vérifié</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="space-y-6">
+                        <!-- Category Badge -->
+                        <span class="inline-flex items-center gap-2 bg-slate-100 text-slate-600 px-4 py-2 rounded-full text-sm font-semibold uppercase">
+                            <i class="ph ph-tag"></i>
+                            ${product.category}
+                        </span>
+
+                        <!-- Title -->
+                        <h1 class="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight">
+                            ${product.name}
+                        </h1>
+
+                        <!-- Description -->
+                        <p class="text-slate-600 text-lg leading-relaxed">
+                            ${product.description}
+                        </p>
+
+                        <!-- Pricing Card -->
+                        <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 text-white">
+                            <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Comparatif Prix</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center pb-3 border-b border-slate-700">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                            <i class="ph-fill ph-factory text-blue-400"></i>
+                                        </div>
+                                        <span class="text-slate-300">Prix Usine</span>
+                                    </div>
+                                    <span class="text-xl font-bold">${formatPrice(product.prices.factory)} TND</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-3 border-b border-slate-700">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center">
+                                            <i class="ph-fill ph-boat text-secondary"></i>
+                                        </div>
+                                        <span class="text-slate-300">Rendu Tunisie</span>
+                                    </div>
+                                    <span class="text-xl font-bold text-secondary">${formatPrice(product.prices.landed)} TND</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                                            <i class="ph-fill ph-trend-up text-green-400"></i>
+                                        </div>
+                                        <span class="text-slate-300">Prix Revente Estimé</span>
+                                    </div>
+                                    <span class="text-xl font-bold text-green-400">${formatPrice(product.prices.resell)} TND</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-slate-700 flex items-center justify-between">
+                                <span class="text-slate-400">Marge Potentielle</span>
+                                <span class="text-2xl font-bold text-green-400">+${Math.round((product.prices.resell - product.prices.landed) / product.prices.landed * 100)}%</span>
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+                            <h3 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                <i class="ph-fill ph-star text-secondary"></i>
+                                Caractéristiques
+                            </h3>
+                            <ul class="space-y-3">
+                                ${product.features.map(feature => `
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                            <i class="ph-fill ph-check text-green-600 text-sm"></i>
+                                        </div>
+                                        <span class="text-slate-600">${feature}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button onclick="openConsultationModal()" class="flex-1 bg-gradient-to-r from-secondary to-gold-light hover:from-gold-dark hover:to-secondary text-slate-900 py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-secondary/30 hover:shadow-xl flex items-center justify-center gap-2">
+                                <i class="ph ph-phone-call"></i>
+                                Demander un Devis
+                            </button>
+                            <a href="https://wa.me/21650279797?text=Bonjour, je suis intéressé par: ${encodeURIComponent(product.name)}" target="_blank" rel="noopener noreferrer" class="flex-1 bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold text-lg transition flex items-center justify-center gap-2">
+                                <i class="ph ph-whatsapp-logo"></i>
+                                Contacter sur WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Section -->
+                <div class="mt-16 bg-white rounded-3xl p-8 shadow-xl border border-slate-100 fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-2xl font-bold text-center mb-10 flex items-center justify-center gap-3">
+                        <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center">
+                            <i class="ph ph-path text-secondary text-2xl"></i>
+                        </div>
+                        Timeline de Livraison
+                    </h3>
+                    <div class="relative">
+                        <!-- Progress Line -->
+                        <div class="hidden lg:block absolute top-8 left-[8%] right-[8%] h-1 bg-slate-200 rounded-full">
+                            <div class="h-full bg-gradient-to-r from-primary via-secondary to-green-500 rounded-full" style="width: 100%"></div>
+                        </div>
+                        
+                        <!-- Steps -->
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-${product.steps.length} gap-6">
+                            ${product.steps.map((step, index) => `
+                                <div class="text-center relative">
+                                    <div class="w-16 h-16 mx-auto bg-gradient-to-br from-primary to-blue-700 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/30 mb-4 relative z-10">
+                                        <i class="ph ${step.icon} text-2xl"></i>
+                                    </div>
+                                    <h4 class="font-bold text-slate-900 text-sm mb-1">${step.label}</h4>
+                                    <p class="text-secondary text-sm font-semibold">${step.days}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <div class="mt-16 fade-in" style="animation-delay: 0.3s;">
+                    <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                        <i class="ph ph-squares-four text-secondary"></i>
+                        Produits Similaires
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="related-products"></div>
+                </div>
+            `;
+
+            // Load related products
+            loadRelatedProducts(product);
+        }
+
+        // Load related products
+        function loadRelatedProducts(currentProduct) {
+            const related = products
+                .filter(p => p.category === currentProduct.category && p.id !== currentProduct.id)
+                .slice(0, 3);
+
+            const container = document.getElementById('related-products');
+            if (related.length === 0) {
+                container.innerHTML = '<p class="text-slate-500 col-span-full text-center py-8">Aucun produit similaire trouvé.</p>';
+                return;
+            }
+
+            container.innerHTML = related.map(product => `
+                <a href="product.html?id=${product.id}" class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-secondary/30">
+                    <div class="relative overflow-hidden">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="${product.badgeColor} absolute top-3 left-3 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            ${product.badge}
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-slate-900 mb-2 group-hover:text-secondary transition">${product.name}</h4>
+                        <div class="flex items-center justify-between">
+                            <span class="text-secondary font-bold">${formatPrice(product.prices.landed)} TND</span>
+                            <span class="text-slate-500 text-sm flex items-center gap-1">
+                                <i class="ph ph-clock"></i>
+                                ${product.timeline}
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Modal functions
+        function openConsultationModal() {
+            document.getElementById('consultation-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeConsultationModal() {
+            document.getElementById('consultation-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Toast function
+        function showToast(message) {
+            const toast = document.getElementById('success-toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 3000);
+        }
+
+        // Form submission
+        document.getElementById('quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            closeConsultationModal();
+            showToast('Demande envoyée! Nous vous contacterons sous 24h.');
+            this.reset();
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadProductDetails);
+    </script>
+
+</body>
+</html>

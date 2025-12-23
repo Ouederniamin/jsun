@@ -255,10 +255,10 @@ function renderProductGrid(filter = 'all') {
         : products.filter(p => p.category === filter);
 
     container.innerHTML = filteredProducts.map(product => `
-        <article class="product-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer" onclick="openProductDetail(${product.id})">
+        <a href="product.html?id=${product.id}" class="product-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer block">
             <!-- Image -->
             <div class="relative h-48 overflow-hidden">
-                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                 <span class="absolute top-3 left-3 ${product.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full">
                     ${product.badge}
                 </span>
@@ -291,12 +291,13 @@ function renderProductGrid(filter = 'all') {
                 <!-- MOQ & CTA -->
                 <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
                     <span class="text-sm text-medium"><i class="ph ph-package mr-1"></i>MOQ: ${product.moq}</span>
-                    <button class="bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
+                    <span class="bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded-lg text-sm font-semibold transition inline-flex items-center gap-2">
                         Voir Détails
-                    </button>
+                        <i class="ph ph-arrow-right"></i>
+                    </span>
                 </div>
             </div>
-        </article>
+        </a>
     `).join('');
 }
 
